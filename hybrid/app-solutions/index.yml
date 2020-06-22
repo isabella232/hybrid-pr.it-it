@@ -1,0 +1,72 @@
+### YamlMime:Landing
+title: Documentazione di soluzioni e modelli ibridi di Azure
+summary: Informazioni su come sfruttare gli esempi di soluzioni e i modelli ibridi nello sviluppo di app. Azure e Azure Stack consentono lo sviluppo di applicazioni ibride basate su famiglia di servizi cloud e servizi perimetrali intelligenti.
+metadata:
+  title: Documentazione di soluzioni e modelli ibridi di Azure
+  description: Informazioni su come sfruttare gli esempi di soluzioni e i modelli ibridi nello sviluppo di app. Azure e Azure Stack consentono lo sviluppo di applicazioni ibride basate su una famiglia di servizi cloud e servizi perimetrali intelligenti.
+  ms.service: azure-stack
+  ms.topic: landing-page
+  author: BryanLa
+  ms.author: bryanla
+  ms.date: 10/31/2019
+  ms.openlocfilehash: 923e8aa2af78b5d23ba1f25d8b0eb5b80edc4f0a
+  ms.sourcegitcommit: bb3e40b210f86173568a47ba18c3cc50d4a40607
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 06/17/2020
+  ms.locfileid: "84909719"
+landingContent:
+- title: Informazioni su soluzioni e modelli ibridi
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cosa sono gli esempi di soluzioni e i modelli ibridi?
+      url: overview-patterns-solution-examples.md
+  - linkListType: concept
+    links:
+    - text: Considerazioni per la progettazione di app ibride
+      url: overview-app-design-considerations.md
+- title: Esplorare i modelli ibridi
+  linkLists:
+  - linkListType: architecture
+    links:
+    - text: Scalabilità tra cloud
+      url: pattern-cross-cloud-scale.md
+    - text: CI/CD ibrido per DevOps
+      url: pattern-cicd-pipeline.md
+    - text: Rilevamento del footfall (retail)
+      url: pattern-retail-footfall-detection.md
+    - text: App con distribuzione geografica
+      url: pattern-geo-distributed.md
+- title: Distribuire esempi di soluzioni ibride
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Scalabilità tra cloud
+      url: solution-deployment-guide-cross-cloud-scaling.md
+    - text: CI/CD ibrido per DevOps
+      url: https://aka.ms/hybriddevopsdeploy
+    - text: Rilevamento del footfall (retail)
+      url: solution-deployment-guide-retail-footfall-detection.md
+    - text: App con distribuzione geografica
+      url: solution-deployment-guide-geo-distributed.md
+- title: Scenario di rilevamento di footfall in ambienti retail
+  linkLists:
+  - linkListType: architecture
+    links:
+    - text: Modello
+      url: pattern-retail-footfall-detection.md
+  - linkListType: tutorial
+    links:
+    - text: Guida alla distribuzione di soluzioni
+      url: solution-deployment-guide-retail-footfall-detection.md
+- title: Scenario di scalabilità tra cloud con dati locali
+  linkLists:
+  - linkListType: architecture
+    links:
+    - text: Modello
+      url: pattern-cross-cloud-scale-onprem-data.md
+  - linkListType: tutorial
+    links:
+    - text: Guida alla distribuzione di soluzioni
+      url: solution-deployment-guide-cross-cloud-scaling-onprem-data.md

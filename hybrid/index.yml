@@ -1,0 +1,310 @@
+### YamlMime:Hub
+title: Documentazione del cloud ibrido di Azure
+summary: Risorse per lo sviluppo e la gestione di soluzioni ibride che si estendono nel cloud globale, nel data center e al perimetro.
+brand: azure
+metadata:
+  title: Documentazione del cloud ibrido di Azure
+  description: Risorse per lo sviluppo e la gestione di soluzioni ibride che si estendono nel cloud globale, nel data center e al perimetro.
+  ms.service: multiple
+  ms.topic: hub-page
+  author: BryanLa
+  ms.author: bryanla
+  ms.date: 06/08/2020
+  ms.openlocfilehash: aa1477386b5c6fe356459e5919da4edd8cf24075
+  ms.sourcegitcommit: bb3e40b210f86173568a47ba18c3cc50d4a40607
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 06/17/2020
+  ms.locfileid: "84909693"
+highlightedContent:
+  items:
+  - title: Azure Hybrid Virtual Event - 24 giugno 2020
+    itemType: video
+    url: https://info.microsoft.com/ww-registration-azure-hybrid-virtual-event.html
+  - title: "Build 2020: Sessioni sull'ibrido"
+    itemType: video
+    url: https://mybuild.microsoft.com/sessions?q=hybrid&g=%255B%2522on-demand%2522%255D
+  - title: 'Build 2020: Sessioni su Azure Arc'
+    itemType: video
+    url: https://mybuild.microsoft.com/sessions?q=%2522%2520Arc%2520%2522&g=%255B%2522on-demand%2522%255D
+  - title: 'Build 2020: Sessioni sulla rete perimetrale intelligente'
+    itemType: video
+    url: https://mybuild.microsoft.com/sessions?q=%2522%2520intelligent%2520edge%2520%2522%2520%2522%2520sql%2520edge%2520%2522
+productDirectory:
+  title: Piattaforma di cloud ibrido di Azure
+  summary: Piattaforme con supporto dell'ibrido usate per sviluppare e gestire soluzioni ibride.
+  items:
+  - title: Piattaforma di cloud pubblico/sovrano globale di Azure.
+    imageSrc: media/index/logo_azure.svg
+    links:
+    - url: /azure
+      text: Servizi di Azure
+  - title: Piattaforme di cloud privato per data center ospitati, locali e mobili.
+    imageSrc: media/index/azure-stack-hub.svg
+    links:
+    - url: /azure-stack/operator
+      text: Hub di Azure Stack
+    - url: /azure-stack/hci
+      text: Azure Stack HCI
+  - title: Piattaforme di reti perimetrali intelligenti per i dispositivi.
+    imageSrc: media/index/azure-stack-hub.svg
+    links:
+    - url: /azure/iot-edge/
+      text: Azure IoT Edge
+    - url: /azure-sphere
+      text: Azure Sphere
+    - url: /windows/iot-core/
+      text: Windows per IoT
+conceptualContent:
+  title: Tecnologie di supporto dell'ibrido
+  summary: Servizi e prodotti per lo sviluppo e la gestione di soluzioni ibride.
+  items:
+  - title: Intelligenza artificiale e Machine Learning
+    links:
+    - url: /azure/bot-service
+      itemType: overview
+      text: Servizio Azure Bot
+    - url: /azure/search/
+      itemType: overview
+      text: Ricerca cognitiva di Azure
+    - url: /azure/cognitive-services/
+      itemType: overview
+      text: Servizi cognitivi di Azure
+    - url: /azure/machine-learning/
+      itemType: overview
+      text: Azure Machine Learning
+  - title: Contenitori
+    links:
+    - url: /azure/azure-arc/kubernetes/
+      itemType: overview
+      text: Kubernetes con abilitazione di Azure Arc (anteprima)
+    - url: /azure/container-instances/
+      itemType: overview
+      text: Istanze di Azure Container
+    - url: /azure/container-registry/
+      itemType: overview
+      text: Registro Azure Container
+    - url: /azure/aks/
+      itemType: overview
+      text: Servizi Azure Kubernetes in Azure
+    - url: /azure-stack/user/azure-stack-kubernetes-aks-engine-overview
+      itemType: overview
+      text: Servizi Azure Kubernetes nell'hub di Azure Stack
+    - url: /azure/docker/
+      itemType: overview
+      text: Docker in Azure
+    - url: /azure/iot-edge/how-to-install-iot-edge-kubernetes
+      itemType: overview
+      text: IoT Edge in Kubernetes
+  - title: Database
+    links:
+    - url: https://azure.microsoft.com/services/azure-arc/hybrid-data-services/
+      itemType: overview
+      text: Servizi dati con abilitazione di Azure Arc (iscrizione all'anteprima privata)
+    - url: /azure/azure-sql-edge/overview
+      itemType: overview
+      text: SQL Edge di Azure (anteprima)
+  - title: Sviluppo e integrazione
+    links:
+    - url: /azure-stack/operator/azure-stack-app-service-overview
+      itemType: overview
+      text: Servizio app nell'hub di Azure Stack
+    - url: /azure/app-service/app-service-hybrid-connections
+      itemType: overview
+      text: Connessioni ibride del Servizio app di Azure
+    - url: /azure/devops
+      itemType: overview
+      text: Azure DevOps per CI/CD
+    - url: /azure/event-hubs/
+      itemType: overview
+      text: Hub eventi di Azure
+    - url: /azure/azure-functions/
+      itemType: overview
+      text: Funzioni di Azure
+    - url: /azure/logic-apps/
+      itemType: overview
+      text: App per la logica di Azure
+    - url: /azure/azure-monitor/app/app-insights-overview
+      itemType: overview
+      text: Monitoraggio di Azure - Application Insights
+    - url: /azure/service-fabric/
+      itemType: overview
+      text: Azure Service Fabric
+    - url: /azure-stack/operator/event-hubs-rp-overview
+      itemType: overview
+      text: Hub eventi nell'hub di Azure Stack
+  - title: Microsoft Edge
+    links:
+    - url: /azure/databox-online/data-box-gateway-overview
+      itemType: overview
+      text: Azure Data Box Gateway
+    - url: /azure/iot-edge/
+      itemType: overview
+      text: Azure IoT Edge
+    - url: /azure-sphere
+      itemType: overview
+      text: Azure Sphere
+    - url: /azure/databox-online/azure-stack-edge-overview
+      itemType: overview
+      text: Azure Stack Edge
+    - url: /azure/azure-sql-edge/overview
+      itemType: overview
+      text: SQL Edge di Azure (anteprima)
+    - url: /azure/iot-edge/how-to-install-iot-edge-kubernetes
+      itemType: overview
+      text: IoT Edge in Kubernetes
+    - url: /windows/iot-core/
+      itemType: overview
+      text: Windows per IoT
+  - title: Identità e sicurezza
+    links:
+    - url: /azure/active-directory/hybrid/
+      itemType: overview
+      text: Soluzione ibrida di gestione delle identità di Azure AD
+    - url: /azure/security-center/
+      itemType: overview
+      text: Centro sicurezza di Azure
+    - url: /azure/sentinel/
+      itemType: overview
+      text: Azure Sentinel
+    - url: /azure/active-directory/devices/concept-azure-ad-join-hybrid
+      itemType: overview
+      text: Dispositivi aggiunti all'identità ibrida di Azure AD
+  - title: Gestione
+    links:
+    - url: https://azure.microsoft.com/services/azure-arc/hybrid-data-services/
+      itemType: overview
+      text: Servizi dati con abilitazione di Azure Arc (iscrizione all'anteprima privata)
+    - url: /azure/azure-arc/kubernetes/
+      itemType: overview
+      text: Kubernetes con abilitazione di Azure Arc (anteprima)
+    - url: /azure/azure-arc/
+      itemType: overview
+      text: Server con abilitazione per Azure Arc (anteprima)
+    - url: /azure/automation/
+      itemType: overview
+      text: Automazione di Azure
+    - url: /azure/storage/files/
+      itemType: overview
+      text: File di Azure
+    - url: /azure-monitor
+      itemType: overview
+      text: Monitoraggio di Azure
+    - url: /azure/site-recovery/
+      itemType: overview
+      text: Azure Site Recovery
+    - url: /azure-stack/hci/overview
+      itemType: overview
+      text: Funzionalità ibride di Azure Stack HCI
+    - url: /windows-server/manage/windows-admin-center/azure/
+      itemType: overview
+      text: Servizi ibridi di Azure per Windows Admin Center
+  - title: Rete
+    links:
+    - url: /azure/networking/edge-zones-overview
+      itemType: overview
+      text: Zone perimetrali di Azure
+    - url: /azure/expressroute/
+      itemType: overview
+      text: Azure ExpressRoute
+    - url: /azure/load-balancer/
+      itemType: overview
+      text: Azure Load Balancer
+    - url: /azure/private-link/
+      itemType: overview
+      text: Collegamento privato di Azure
+    - url: /azure/azure-relay/
+      itemType: overview
+      text: Servizio di inoltro di Azure
+    - url: /azure/traffic-manager/
+      itemType: overview
+      text: Gestione traffico di Azure
+    - url: /azure/virtual-network/
+      itemType: overview
+      text: Rete virtuale di Azure
+    - url: /azure/vpn-gateway/
+      itemType: overview
+      text: Gateway VPN di Azure
+  - title: Archiviazione
+    links:
+    - url: /azure/avere-vfxt/avere-vfxt-overview
+      itemType: overview
+      text: Avere vFXT per Azure
+    - url: /azure/backup/
+      itemType: overview
+      text: Backup di Azure
+    - url: /azure/storage/files/storage-files-introduction
+      itemType: overview
+      text: File di Azure
+    - url: /azure/site-recovery/
+      itemType: overview
+      text: Azure Site Recovery
+    - url: /azure/fxt-edge-filer/fxt-overview
+      itemType: overview
+      text: Azure FXT Edge Filer
+additionalContent:
+  sections:
+  - title: Soluzioni ibride
+    items:
+    - title: Esempi di soluzioni e modelli di app ibride
+      links:
+      - url: /hybrid/app-solutions/overview-patterns-solution-examples
+        text: Che cosa sono gli esempi di soluzioni e i modelli?
+      - url: /hybrid/app-solutions/overview-app-design-considerations
+        text: Considerazioni per la progettazione di app ibride
+    - title: Esplorare i modelli ibridi
+      links:
+      - url: /hybrid/app-solutions/pattern-cross-cloud-scale
+        text: Scalabilità tra cloud
+      - url: /hybrid/app-solutions/pattern-cicd-pipeline
+        text: CI/CD ibrido per DevOps
+      - url: /hybrid/app-solutions/pattern-retail-footfall-detection
+        text: Rilevamento del footfall (retail)
+      - url: /hybrid/app-solutions/pattern-geo-distributed
+        text: App con distribuzione geografica
+    - title: Distribuire esempi di soluzioni ibride
+      links:
+      - url: /hybrid/app-solutions/solution-deployment-guide-cross-cloud-scaling
+        text: Scalabilità tra cloud
+      - url: https://aka.ms/hybriddevopsdeploy
+        text: CI/CD ibrido per DevOps
+      - url: /hybrid/app-solutions/solution-deployment-guide-retail-footfall-detection
+        text: Rilevamento del footfall (retail)
+      - url: /hybrid/app-solutions/solution-deployment-guide-geo-distributed
+        text: App con distribuzione geografica
+  - title: Risorse aggiuntive
+    items:
+    - title: Risorse di carattere generale
+      links:
+      - url: /azure-stack/operator/compare-azure-azure-stack
+        text: Azure globale e Azure Stack
+      - url: https://azure.microsoft.com/blog/topics/hybrid/
+        text: Blog sulle funzionalità ibride di Azure
+      - url: https://azure.microsoft.com/overview/azure-hybrid/
+        text: Funzionalità ibride di Azure
+      - url: /learn
+        text: Formazione interattiva di Microsoft Learn
+      - url: /learn/tv/
+        text: Microsoft Learn TV
+    - title: Risorse per lo sviluppo e la gestione
+      links:
+      - url: /dotnet/azure/
+        text: Sviluppo in .NET per Azure
+      - url: https://github.com/likamrat/azure_arc
+        text: Guide di avvio rapido per Azure Arc
+      - url: /samples/browse/
+        text: Browser di esempi di codice
+      - url: https://www.youtube.com/watch?v=2lw8zOpJTn0
+        text: Scalabilità dinamica dall'hub di Azure Stack ad Azure
+      - url: https://labs.iotedge.dev/
+        text: Lab pratici su IoT Edge
+      - url: https://azure.github.io/Vision-AI-DevKit-Pages/
+        text: Kit per sviluppatori di intelligenza artificiale per la visione
+      - url: /visualstudio/azure/
+        text: Sviluppo di Azure in Visual Studio
+    - title: Supporto e altre risorse
+      links:
+      - url: https://catalog.azureiotsolutions.com/alldevices?filters={%2218%22:[%221%22]}
+        text: Certificazione per dispositivi Azure IoT Edge
+      - url: /answers/products/
+        text: Forum di domande e risposte Microsoft

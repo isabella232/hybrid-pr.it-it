@@ -1,0 +1,11 @@
+- name: Docs
+  tocHref: /
+  topicHref: /
+  items:
+    - name: Ibrido
+      tocHref: /hybrid/
+      topicHref: /hybrid/
+      items:
+        - name: Soluzioni per app
+          tocHref: /hybrid/app-solutions/
+          topicHref: /hybrid/app-solutions/index
