@@ -1,0 +1,74 @@
+- name: Documentazione delle funzionalità ibride di Azure
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Esempi di soluzioni e modelli ibridi
+      href: overview-patterns-solution-examples.md
+- name: Modelli
+  items:
+    - name: Single
+      items:
+        - name: Scalabilità tra cloud
+          href: pattern-cross-cloud-scale.md
+        - name: CI/CD ibrido per DevOps
+          href: pattern-cicd-pipeline.md
+        - name: App con distribuzione geografica
+          href: pattern-geo-distributed.md
+        - name: Inoltro ibrido
+          href: pattern-hybrid-relay.md
+        - name: Dati su più livelli
+          href: pattern-tiered-data-analytics.md
+        - name: Eseguire il training di un modello di ML al perimetro
+          href: pattern-train-ml-model-at-edge.md
+    - name: Multi
+      items:
+        - name: Scalabilità tra cloud (dati locali)
+          href: pattern-cross-cloud-scale-onprem-data.md
+        - name: Rilevamento del footfall (retail)
+          href: pattern-retail-footfall-detection.md
+        - name: Rilevamento dell'esaurimento di scorte al perimetro
+          href: pattern-out-of-stock-at-edge.md
+- name: Guide alla distribuzione di soluzioni
+  items:
+    - name: Scalabilità tra cloud
+      href: solution-deployment-guide-cross-cloud-scaling.md
+    - name: Scalabilità tra cloud (dati locali)
+      href: solution-deployment-guide-cross-cloud-scaling-onprem-data.md
+    - name: CI/CD ibrido per DevOps
+      href: 'https://aka.ms/hybriddevopsdeploy'
+    - name: Rilevamento del footfall (retail)
+      href: solution-deployment-guide-retail-footfall-detection.md
+    - name: App con distribuzione geografica
+      href: solution-deployment-guide-geo-distributed.md
+    - name: Connettività ibrida
+      href: solution-deployment-guide-connectivity.md
+    - name: Identità ibrida
+      href: solution-deployment-guide-identity.md
+    - name: Inoltro ibrido
+      href: 'https://aka.ms/hybridrelaydeployment'
+    - name: Dati su più livelli
+      href: 'https://aka.ms/tiereddatadeploy'
+    - name: MongoDB a disponibilità elevata
+      href: solution-deployment-guide-mongodb-ha.md
+    - name: SQL Server 2016 a disponibilità elevata
+      href: solution-deployment-guide-sql-ha.md
+    - name: Esaurimento delle scorte al perimetro
+      href: 'https://aka.ms/edgeinferencingdeploy'
+    - name: Training di modelli di ML al perimetro
+      href: 'https://aka.ms/edgetrainingdeploy'
+- name: Concetti
+  items:
+    - name: Considerazioni per la progettazione di app ibride
+      href: overview-app-design-considerations.md
+- name: Risorse correlate
+  items:
+    - name: Documentazione di Azure
+      href: /azure
+    - name: Documentazione di Azure Stack
+      href: /azure-stack
+- name: Risorse
+  items:
+    - name: Microsoft Learn
+      href: /learn
+    - name: Domande e risposte Microsoft
+      href: /answers/products/
