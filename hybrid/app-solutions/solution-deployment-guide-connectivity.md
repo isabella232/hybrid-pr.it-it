@@ -39,7 +39,7 @@ Per creare una distribuzione di connettività ibrida sono necessari alcuni compo
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 - Creare un' [app Web](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts) in Azure. Prendere nota dell'URL dell'app Web perché sarà necessario nella soluzione.
 
-### <a name="azure-stack-hub"></a>Hub Azure Stack
+### <a name="azure-stack-hub"></a>Hub di Azure Stack
 
 Un partner Azure OEM/hardware può distribuire un hub Azure Stack di produzione e tutti gli utenti possono distribuire una Azure Stack Development Kit (Gabriele).
 
