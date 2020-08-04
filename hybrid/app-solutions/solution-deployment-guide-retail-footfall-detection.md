@@ -1,78 +1,78 @@
 ---
-title: Distribuire la soluzione di rilevamento calpestio basata su intelligenza artificiale in Azure e nell'hub Azure Stack
-description: Informazioni su come distribuire una soluzione di rilevamento calpestio basata su intelligenza artificiale per l'analisi del traffico dei visitatori nei negozi al dettaglio usando Azure e l'hub Azure Stack.
+title: Distribuire la soluzione di rilevamento del footfall basata sull'intelligenza artificiale in Azure e nell'hub di Azure Stack
+description: Informazioni su come distribuire una soluzione di rilevamento del footfall basata sull'intelligenza artificiale per analizzare il traffico dei visitatori nei punti vendita al dettaglio usando Azure e l'hub di Azure Stack.
 author: BryanLa
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 6913cc522da447092dad0af24e148a3b2576495c
-ms.sourcegitcommit: bb3e40b210f86173568a47ba18c3cc50d4a40607
-ms.translationtype: MT
+ms.openlocfilehash: 5f2e18e164e54f60b1bb7a14026a0c75c7d7ce69
+ms.sourcegitcommit: d2def847937178f68177507be151df2aa8e25d53
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84910894"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86477168"
 ---
-# <a name="deploy-an-ai-based-footfall-detection-solution-using-azure-and-azure-stack-hub"></a>Distribuire una soluzione di rilevamento calpestio basata su intelligenza artificiale usando Azure e l'hub Azure Stack
+# <a name="deploy-an-ai-based-footfall-detection-solution-using-azure-and-azure-stack-hub"></a>Distribuire una soluzione di rilevamento del footfall basata sull'intelligenza artificiale usando Azure e l'hub di Azure Stack
 
-Questo articolo descrive come distribuire una soluzione basata su intelligenza artificiale che genera informazioni dettagliate da azioni reali usando Azure, Azure Stack Hub e il Visione personalizzata AI Dev Kit.
+Questo articolo descrive come distribuire una soluzione basata sull'intelligenza artificiale che genera informazioni dettagliate da azioni reali usando Azure, l'hub di Azure Stack e il Custom Vision AI Dev Kit.
 
 In questa soluzione si apprenderà come:
 
 > [!div class="checklist"]
-> - Distribuire bundle di applicazioni native cloud (CNAB) al perimetro. 
-> - Distribuire un'app che si estende sui limiti del cloud.
-> - Usare Visione personalizzata AI Dev Kit per l'inferenza al perimetro.
+> - Distribuire Cloud Native Application Bundle (CNAB) perimetrali. 
+> - Distribuire un'app che si estende oltre i limiti del cloud.
+> - Usare il Custom Vision AI Dev Kit per l'inferenza perimetrale.
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
-> Microsoft Azure Stack Hub è un'estensione di Azure. Azure Stack Hub offre l'agilità e l'innovazione di cloud computing all'ambiente locale, abilitando l'unico Cloud ibrido che consente di creare e distribuire app ibride ovunque.  
+> L'hub di Microsoft Azure Stack è un'estensione di Azure, che offre all'ambiente locale l'agilità e l'innovazione del cloud computing, abilitando l'unico cloud ibrido che consente di creare e distribuire ovunque app ibride.  
 > 
-> L'articolo [considerazioni sulla progettazione di app ibride](overview-app-design-considerations.md) esamina i pilastri della qualità del software (posizionamento, scalabilità, disponibilità, resilienza, gestibilità e sicurezza) per la progettazione, la distribuzione e la gestione di app ibride. Le considerazioni di progettazione consentono di ottimizzare la progettazione delle app ibride, riducendo al minimo le esigenze negli ambienti di produzione.
+> L'articolo [Considerazioni per la progettazione di app ibride](overview-app-design-considerations.md) esamina i concetti fondamentali di qualità del software (posizionamento, scalabilità, disponibilità, resilienza, gestibilità e sicurezza) per la progettazione, la distribuzione e la gestione di app ibride. Le considerazioni di progettazione consentono di ottimizzare la progettazione delle app ibride, riducendo al minimo i rischi negli ambienti di produzione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare a usare questa guida alla distribuzione, assicurarsi di:
+Prima di iniziare a usare questa guida alla distribuzione:
 
-- Vedere l'argomento relativo al [modello di rilevamento calpestio](pattern-retail-footfall-detection.md) .
-- Ottenere l'accesso utente a un'istanza di sistema integrata Azure Stack Development Kit (Gabriele) o Azure Stack Hub con:
-  - Il [servizio app Azure nel provider di risorse dell'Hub Azure stack](/azure-stack/operator/azure-stack-app-service-overview.md) installato. È necessario l'accesso dell'operatore all'istanza dell'hub Azure Stack o collaborare con l'amministratore per installare.
-  - Sottoscrizione a un'offerta che fornisce il servizio app e la quota di archiviazione. Per creare un'offerta, è necessario disporre dell'accesso operator.
+- Rivedere l'argomento [Modello di rilevamento del footfall](pattern-retail-footfall-detection.md).
+- Ottenere un accesso utente ad Azure Stack Development Kit (ASDK) o un'istanza di sistema integrato dell'hub di Azure Stack, con i requisiti seguenti:
+  - Installazione del [servizio app di Azure in un provider di risorse dell'hub di Azure Stack](/azure-stack/operator/azure-stack-app-service-overview.md). È necessario disporre dell'accesso operatore all'istanza dell'hub di Azure Stack o dell'accesso amministratore per poter eseguire l'installazione.
+  - Sottoscrizione a un'offerta che offre il servizio app e la quota di archiviazione. Per creare un'offerta, è necessario disporre dell'accesso operatore.
 - Ottenere l'accesso a una sottoscrizione di Azure.
-  - Se non si ha una sottoscrizione di Azure, iscriversi per ottenere un [account di valutazione gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+  - Se non si dispone di una sottoscrizione di Azure, iscriversi per creare un [account di prova gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 - Creare due entità servizio nella directory:
-  - Una configurata per l'uso con le risorse di Azure, con accesso all'ambito della sottoscrizione di Azure.
-  - Una configurata per l'uso con Azure Stack risorse dell'hub, con accesso all'ambito della sottoscrizione dell'hub Azure Stack.
-  - Per altre informazioni sulla creazione di entità servizio e l'autorizzazione dell'accesso, vedere [usare un'identità dell'app per accedere alle risorse](/azure-stack/operator/azure-stack-create-service-principals.md). Se si preferisce usare l'interfaccia della riga di comando di Azure, vedere [creare un'entità servizio di Azure con la CLI](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)di Azure.
-- Distribuire servizi cognitivi di Azure in Azure o hub Azure Stack.
-  - Per prima cosa, [Scopri di più su servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/).
-  - Visitare quindi [distribuire servizi cognitivi di Azure all'hub Azure stack](/azure-stack/user/azure-stack-solution-template-cognitive-services.md) per distribuire servizi cognitivi nell'hub Azure stack. Per prima cosa è necessario iscriversi per accedere all'anteprima.
-- Clonare o scaricare un Azure Visione personalizzata AI Dev Kit non configurato. Per informazioni dettagliate, vedere i [DevKit di intelligenza artificiale](https://azure.github.io/Vision-AI-DevKit-Pages/).
-- Iscriversi per un account Power BI.
-- I servizi cognitivi di Azure API Viso la chiave di sottoscrizione e l'URL dell'endpoint. È possibile ottenere entrambi con la versione di valutazione gratuita di [prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api) . In alternativa, seguire le istruzioni riportate in [creare un account servizi cognitivi](/azure/cognitive-services/cognitive-services-apis-create-account).
+  - Una configurata per usare le risorse di Azure, con accesso all'ambito della sottoscrizione di Azure.
+  - Una configurata per usare le risorse dell'hub di Azure Stack, con accesso all'ambito della sottoscrizione dell'hub di Azure Stack.
+  - Per altre informazioni sulla creazione di entità servizio e sull'autorizzazione dell'accesso, vedere [Usare un'identità dell'app per accedere alle risorse](/azure-stack/operator/azure-stack-create-service-principals.md). Per usare l'interfaccia della riga di comando di Azure, vedere [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
+- Distribuire Servizi cognitivi di Azure in Azure o nell'hub di Azure Stack.
+  - Leggere prima [altre informazioni su Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/).
+  - Visitare quindi [Distribuire Servizi cognitivi di Azure nell'hub di Azure Stack](/azure-stack/user/azure-stack-solution-template-cognitive-services.md) per distribuire Servizi cognitivi nell'hub di Azure Stack. È prima necessario iscriversi per accedere all'anteprima.
+- Clonare o scaricare una versione del Custom Vision AI Dev Kit non configurata di Azure. Per informazioni dettagliate, vedere [Vision AI DevKit](https://azure.github.io/Vision-AI-DevKit-Pages/).
+- Creare un account Power BI.
+- Chiave di sottoscrizione per l'API Viso di Servizi cognitivi di Azure e URL dell'endpoint. È possibile ottenere sia la chiave sia l'URL nella versione di [valutazione di Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni riportate in [Creare un account di Servizi cognitivi](/azure/cognitive-services/cognitive-services-apis-create-account).
 - Installare le risorse di sviluppo seguenti:
   - [Interfaccia della riga di comando di Azure 2.0](/azure-stack/user/azure-stack-version-profiles-azurecli2.md)
   - [Docker CE](https://hub.docker.com/search/?type=edition&offering=community)
-  - [Porter](https://porter.sh/). Si usa porter per distribuire app cloud usando i manifesti del bundle CNAB forniti per l'utente.
+  - [Porter](https://porter.sh/). Porter consente di distribuire app cloud usando i manifesti di bundle CNAB disponibili.
   - [Visual Studio Code](https://code.visualstudio.com/)
-  - [Strumenti di Azure per la Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+  - [Azure IoT Tools per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
   - [Estensione Python per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   - [Python](https://www.python.org/)
 
 ## <a name="deploy-the-hybrid-cloud-app"></a>Distribuire l'app cloud ibrida
 
-Usare prima l'interfaccia della riga di comando di Porter per generare un set di credenziali e quindi distribuire l'app cloud.  
+Usare l'interfaccia della riga di comando di Porter per generare un set di credenziali, quindi distribuire l'app cloud.  
 
-1. Clonare o scaricare il codice di esempio della soluzione da https://github.com/azure-samples/azure-intelligent-edge-patterns . 
+1. Clonare o scaricare il codice di esempio della soluzione da https://github.com/azure-samples/azure-intelligent-edge-patterns. 
 
 1. Porter genererà un set di credenziali che consentono di automatizzare la distribuzione dell'app. Prima di eseguire il comando di generazione delle credenziali, assicurarsi che siano disponibili gli elementi seguenti:
 
     - Entità servizio per l'accesso alle risorse di Azure, inclusi l'ID dell'entità servizio, la chiave e il DNS tenant.
-    - ID sottoscrizione per la sottoscrizione di Azure.
-    - Entità servizio per l'accesso alle risorse di Azure Stack Hub, inclusi l'ID dell'entità servizio, la chiave e il DNS tenant.
-    - ID sottoscrizione per la sottoscrizione dell'hub Azure Stack.
-    - I servizi cognitivi di Azure API Viso la chiave e l'URL dell'endpoint di risorsa.
+    - ID sottoscrizione della sottoscrizione di Azure.
+    - Entità servizio per l'accesso alle risorse dell'hub di Azure Stack, inclusi l'ID dell'entità servizio, la chiave e il DNS tenant.
+    - ID sottoscrizione della sottoscrizione dell'hub di Azure Stack.
+    - Chiave per l'API Viso di Servizi cognitivi di Azure e URL dell'endpoint della risorsa.
 
 1. Eseguire il processo di generazione delle credenziali di Porter e seguire le istruzioni:
 
@@ -80,10 +80,10 @@ Usare prima l'interfaccia della riga di comando di Porter per generare un set di
    porter creds generate --tag intelligentedge/footfall-cloud-deployment:0.1.0
    ```
 
-1. Porter richiede anche un set di parametri per l'esecuzione. Creare un file di testo del parametro e immettere le coppie nome/valore seguenti. Chiedere all'amministratore di Azure Stack hub se è necessaria assistenza per uno dei valori richiesti.
+1. Per l'esecuzione, Porter richiede anche un set di parametri. Creare un file di testo per i parametri e immettere le coppie nome-valore seguenti. Rivolgersi all'amministratore dell'hub di Azure Stack per richiedere assistenza su qualsiasi valore necessario.
 
    > [!NOTE] 
-   > Il `resource suffix` valore viene usato per garantire che le risorse della distribuzione abbiano nomi univoci in Azure. Deve essere una stringa univoca di lettere e numeri, non più di 8 caratteri.
+   > Il valore `resource suffix` viene usato per assicurare che le risorse della distribuzione abbiano nomi univoci in Azure. Deve essere una stringa univoca di lettere e numeri e non deve superare gli 8 caratteri di lunghezza.
 
     ```porter
     azure_stack_tenant_arm="Your Azure Stack Hub tenant endpoint"
@@ -97,7 +97,7 @@ Usare prima l'interfaccia della riga di comando di Porter per generare un set di
     ```
    Salvare il file di testo e prendere nota del relativo percorso.
 
-1. A questo punto è possibile distribuire l'app cloud ibrido usando Porter. Eseguire il comando di installazione e osservare come le risorse vengono distribuite in Azure e Azure Stack Hub:
+1. A questo punto è possibile distribuire l'app cloud ibrida usando Porter. Eseguire il comando di installazione e osservare come le risorse vengono distribuite in Azure e nell'hub di Azure Stack:
 
     ```porter
     porter install footfall-cloud –tag intelligentedge/footfall-cloud-deployment:0.1.0 –creds footfall-cloud-deployment –param-file "path-to-cloud-parameters-file.txt"
@@ -108,19 +108,19 @@ Usare prima l'interfaccia della riga di comando di Porter per generare un set di
     - Stringa di connessione dell'account di archiviazione dell'immagine.
     - Nomi dei gruppi di risorse.
 
-## <a name="prepare-the-custom-vision-ai-devkit"></a>Preparare il DevKit di intelligenza artificiale Visione personalizzata
+## <a name="prepare-the-custom-vision-ai-devkit"></a>Preparare il Custom Vision AI DevKit
 
-Configurare quindi il Visione personalizzata AI Dev Kit come illustrato nella [Guida introduttiva a DevKit per intelligenza artificiale](https://azure.github.io/Vision-AI-DevKit-Pages/docs/quick_start/). È anche possibile configurare e testare la fotocamera, usando la stringa di connessione fornita nel passaggio precedente.
+A questo punto configurare il Custom Vision AI DevKit come illustrato nell'[avvio rapido di Vision AI DevKit](https://azure.github.io/Vision-AI-DevKit-Pages/docs/quick_start/). È anche possibile configurare e testare la fotocamera, usando la stringa di connessione ottenuta nel passaggio precedente.
 
 ## <a name="deploy-the-camera-app"></a>Distribuire l'app della fotocamera
 
-Usare l'interfaccia della riga di comando di Porter per generare un set di credenziali e quindi distribuire l'app della fotocamera.
+Usare l'interfaccia della riga di comando di Porter per generare un set di credenziali, quindi distribuire l'app della fotocamera.
 
 1. Porter genererà un set di credenziali che consentono di automatizzare la distribuzione dell'app. Prima di eseguire il comando di generazione delle credenziali, assicurarsi che siano disponibili gli elementi seguenti:
 
     - Entità servizio per l'accesso alle risorse di Azure, inclusi l'ID dell'entità servizio, la chiave e il DNS tenant.
-    - ID sottoscrizione per la sottoscrizione di Azure.
-    - Stringa di connessione dell'account di archiviazione dell'immagine fornita quando è stata distribuita l'app cloud.
+    - ID sottoscrizione della sottoscrizione di Azure.
+    - Stringa di connessione dell'account di archiviazione dell'immagine ottenuta durante la distribuzione dell'app cloud.
 
 1. Eseguire il processo di generazione delle credenziali di Porter e seguire le istruzioni:
 
@@ -128,10 +128,10 @@ Usare l'interfaccia della riga di comando di Porter per generare un set di crede
     porter creds generate --tag intelligentedge/footfall-camera-deployment:0.1.0
     ```
 
-1. Porter richiede anche un set di parametri per l'esecuzione. Creare un file di testo del parametro e immettere il testo seguente. Se non si conoscono alcuni dei valori richiesti, rivolgersi all'amministratore dell'hub Azure Stack.
+1. Per l'esecuzione, Porter richiede anche un set di parametri. Creare un file di testo per i parametri e immettere il testo seguente. Rivolgersi all'amministratore dell'hub di Azure Stack se non sono noti alcuni dei valori richiesti.
 
     > [!NOTE]
-    > Il `deployment suffix` valore viene usato per garantire che le risorse della distribuzione abbiano nomi univoci in Azure. Deve essere una stringa univoca di lettere e numeri, non più di 8 caratteri.
+    > Il valore `deployment suffix` viene usato per assicurare che le risorse della distribuzione abbiano nomi univoci in Azure. Deve essere una stringa univoca di lettere e numeri e non deve superare gli 8 caratteri di lunghezza.
 
     ```porter
     iot_hub_name="Name of the IoT Hub deployed"
@@ -140,51 +140,51 @@ Usare l'interfaccia della riga di comando di Porter per generare un set di crede
 
     Salvare il file di testo e prendere nota del relativo percorso.
 
-4. A questo punto è possibile distribuire l'app della fotocamera con Porter. Eseguire il comando di installazione e osservare come viene creata la IoT Edge distribuzione.
+4. A questo punto è possibile distribuire l'app della fotocamera usando Porter. Eseguire il comando di installazione e osservare come viene distribuito il servizio IoT Edge.
 
     ```porter
     porter install footfall-camera –tag intelligentedge/footfall-camera-deployment:0.1.0 –creds footfall-camera-deployment –param-file "path-to-camera-parameters-file.txt"
     ```
 
-5. Verificare che la distribuzione della fotocamera sia completa visualizzando il feed della fotocamera in `https://<camera-ip>:3000/` , dove `<camara-ip>` è l'indirizzo IP della fotocamera. Questo passaggio può richiedere fino a 10 minuti.
+5. Verificare che la distribuzione della fotocamera sia completata visualizzando il feed della fotocamera in `https://<camera-ip>:3000/`, dove `<camara-ip>` corrisponde all'indirizzo IP della fotocamera. Questo passaggio può richiedere fino a 10 minuti.
 
 ## <a name="configure-azure-stream-analytics"></a>Configurare Analisi di flusso di Azure
 
-Ora che i dati si propagano ad analisi di flusso di Azure dalla fotocamera, è necessario autorizzarli manualmente per comunicare con Power BI.
+Ora che i dati vengono trasmessi ad Analisi di flusso di Azure dalla fotocamera, è necessario creare manualmente un'autorizzazione perché possano comunicare con Power BI.
 
-1. Dal portale di Azure aprire tutte le **risorse**e il *processo di \[ yoursuffix \] processo-calpestio* .
+1. Nel portale di Azure aprire **Tutte le risorse**, quindi selezionare il processo *process-footfall\[suffissoutente\]* .
 
 2. Nella sezione **Topologia processo** del riquadro del processo di Analisi di flusso selezionare l'opzione **Output**.
 
-3. Selezionare il sink di output del **traffico** .
+3. Selezionare il sink di output **traffic-output**.
 
-4. Selezionare **rinnova autorizzazione** e accedere all'account Power bi.
+4. Selezionare **Rinnova autorizzazione** e accedere all'account di Power BI.
   
-    ![Richiedi rinnovo autorizzazione in Power BI](./media/solution-deployment-guide-retail-footfall-detection/image2.png)
+    ![Richiesta di rinnovo dell'autorizzazione in Power BI](./media/solution-deployment-guide-retail-footfall-detection/image2.png)
 
 5. Salvare le impostazioni di output.
 
-6. Passare al riquadro **Panoramica** e selezionare **Avvia** per iniziare a inviare i dati a Power bi.
+6. Passare al riquadro **Panoramica** e selezionare **Avvia** per iniziare a inviare i dati a Power BI.
 
 7. Selezionare **Ora** come orario di avvio per l'output del processo e selezionare **Avvia**. È possibile visualizzare lo stato del processo nella barra di notifica.
 
-## <a name="create-a-power-bi-dashboard"></a>Creare un dashboard Power BI
+## <a name="create-a-power-bi-dashboard"></a>Creare un dashboard di Power BI
 
-1. Una volta completato il processo, passare a [Power bi](https://powerbi.com/) e accedere con l'account aziendale o dell'Istituto di istruzione. Se la query del processo di analisi di flusso genera risultati, il set di dati *calpestio-DataSet* creato esiste nella scheda **set** di dati.
+1. Al termine del processo, passare a [Power BI](https://powerbi.com/) e accedere con l'account aziendale o dell'istituto di istruzione. Se la query del processo di Analisi di flusso restituisce risultati, il set di dati *footfall-dataset* creato è presente nella scheda **Set di dati**.
 
-2. Dall'area di lavoro Power BI selezionare **+ Crea** per creare un nuovo dashboard denominato *calpestio Analysis.*
+2. Nell'area di lavoro di Power BI selezionare **+ Crea** per creare un nuovo dashboard denominato *Footfall Analysis.*
 
-3. Nella parte superiore della finestra selezionare **Aggiungi riquadro**. Selezionare quindi **Dati in streaming personalizzati** e **Avanti**. Scegliere il **set di dati calpestio** nei **set**di dati. Selezionare **scheda** dall'elenco a discesa **tipo di visualizzazione** e aggiungere **Age** a **Fields**. Selezionare **Avanti** per immettere un nome per il riquadro e quindi selezionare **Applica** per creare il riquadro.
+3. Nella parte superiore della finestra selezionare **Aggiungi riquadro**. Selezionare quindi **Dati in streaming personalizzati** e **Avanti**. Scegliere **footfall-dataset** in **Set di dati personali**. Selezionare **Scheda** nell'elenco a discesa **Tipo di visualizzazione** e aggiungere **age** a **Campi**. Selezionare **Avanti** per immettere un nome per il riquadro e quindi selezionare **Applica** per creare il riquadro.
 
-4. È possibile aggiungere ulteriori campi e schede come desiderato.
+4. È possibile aggiungere altri campi e schede in base alle esigenze.
 
-## <a name="test-your-solution"></a>testare la soluzione.
+## <a name="test-your-solution"></a>Testare la soluzione
 
-Osservare il modo in cui i dati nelle schede create in Power BI cambiano come persone diverse a fronte della fotocamera. Le inferenze possono richiedere fino a 20 secondi per essere visualizzate una volta registrate.
+Osservare come i dati nelle schede create in Power BI cambiano a seconda delle diverse persone che passano di fronte alla fotocamera. È possibile che le inferenze siano visualizzate fino a 20 secondi dopo essere state registrate.
 
 ## <a name="remove-your-solution"></a>Rimuovere la soluzione
 
-Se si vuole rimuovere la soluzione, eseguire i comandi seguenti usando Porter, usando gli stessi file di parametri creati per la distribuzione:
+Se si vuole rimuovere la soluzione, eseguire i comandi seguenti tramite Porter, usando gli stessi file di parametri creati per la distribuzione:
 
 ```porter
 porter uninstall footfall-cloud –tag intelligentedge/footfall-cloud-deployment:0.1.0 –creds footfall-cloud-deployment –param-file "path-to-cloud-parameters-file.txt"
@@ -194,5 +194,5 @@ porter uninstall footfall-camera –tag intelligentedge/footfall-camera-deployme
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su [considerazioni sulla progettazione di app ibride]. (overview-app-design-considerations.md)
-- Esaminare e proporre miglioramenti al [codice per questo esempio su GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/footfall-analysis).
+- Altre informazioni su [Considerazioni per la progettazione di app ibride]. (overview-app-design-considerations.md)
+- Esaminare e proporre miglioramenti del [codice di questo esempio in GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/footfall-analysis).
