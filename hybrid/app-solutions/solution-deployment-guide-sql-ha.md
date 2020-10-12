@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 85b859457b9b54a973c5fc23329b927212b60a07
-ms.sourcegitcommit: d2def847937178f68177507be151df2aa8e25d53
+ms.openlocfilehash: 2c20d621247ec8e1278feb092586232cc08d5480
+ms.sourcegitcommit: 485a1f97fa1579364e2be1755cadfc5ea89db50e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86477083"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91852474"
 ---
 # <a name="deploy-a-sql-server-2016-availability-group-to-azure-and-azure-stack-hub"></a>Distribuire un gruppo di disponibilità di SQL Server 2016 in Azure e nell'hub di Azure Stack
 
@@ -106,5 +106,5 @@ Le immagini Docker per ogni distribuzione eliminano i problemi di dipendenza tra
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Usare SQL Server Management Studio per eseguire manualmente il failover del cluster. Vedere [Eseguire un failover manuale forzato di un gruppo di disponibilità Always On (SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-2017)
-- Altre informazioni sulle app cloud ibride. Vedere [Soluzioni per il cloud ibrido.](https://aka.ms/azsdevtutorials)
+- Altre informazioni sulle app cloud ibride. Vedere [Soluzioni per il cloud ibrido.](/azure-stack/user/)
 - Usare i dati personalizzati o modificare il codice in questo esempio in [GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns).
