@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 6de35cb55c4c35a2a9927f9ffc2516ccb00cd89f
-ms.sourcegitcommit: d2def847937178f68177507be151df2aa8e25d53
+ms.openlocfilehash: ecc42a94e2c59531b2a2e933772b0d8ce8c58609
+ms.sourcegitcommit: 0d5b5336bdb969588d0b92e04393e74b8f682c3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86477321"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92353479"
 ---
 # <a name="deploy-hybrid-app-with-on-premises-data-that-scales-cross-cloud"></a>Distribuire un'app ibrida con dati locali con scalabilità tra cloud
 
@@ -37,7 +37,7 @@ Questa esercitazione illustra le attività seguenti:
 > - Configurare il passaggio automatico del traffico tra Azure globale e l'hub di Azure Stack.
 
 > [!Tip]  
-> ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![Diagramma dei concetti sulle app ibride](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > L'hub di Microsoft Azure Stack è un'estensione di Azure. L'hub di Azure Stack offre all'ambiente locale l'agilità e l'innovazione del cloud computing, abilitando l'unico cloud ibrido che consente di creare e distribuire ovunque app ibride.  
 > 
 > L'articolo [Considerazioni per la progettazione di app ibride](overview-app-design-considerations.md) esamina i concetti fondamentali di qualità del software (posizionamento, scalabilità, disponibilità, resilienza, gestibilità e sicurezza) per la progettazione, la distribuzione e la gestione di app ibride. Le considerazioni per la progettazione consentono di ottimizzare la progettazione delle app ibride, riducendo al minimo i rischi negli ambienti di produzione.
@@ -72,15 +72,15 @@ Prima di iniziare a creare questa soluzione, verificare di soddisfare i requisit
 
 1. Accedere al portale utenti dell'hub di Azure Stack.
 
-2. Nel **Dashboard** selezionare **Marketplace**.
+2. Nel **Dashboard** selezionare **Marketplace** .
 
     ![Marketplace dell'hub di Azure Stack](media/solution-deployment-guide-hybrid/image1.png)
 
-3. In **Marketplace** selezionare **Calcola** e quindi scegliere **Altro**. In **Altro** selezionare l'immagine **Free SQL Server License: SQL Server 2017 Developer on Windows Server**.
+3. In **Marketplace** selezionare **Calcola** e quindi scegliere **Altro** . In **Altro** selezionare l'immagine **Free SQL Server License: SQL Server 2017 Developer on Windows Server** .
 
     ![Selezionare un'immagine di macchina virtuale nel portale utenti dell'hub di Azure Stack](media/solution-deployment-guide-hybrid/image2.png)
 
-4. In **Free SQL Server License: SQL Server 2017 Developer on Windows Server** selezionare **Crea**.
+4. In **Free SQL Server License: SQL Server 2017 Developer on Windows Server** selezionare **Crea** .
 
 5. In **Generale > Configura le impostazioni di base** specificare un **Nome** per la macchina virtuale (VM), un **Nome utente** per l'amministratore di sistema di SQL Server e una **Password** per l'amministratore di sistema.  Nell'elenco a discesa **Sottoscrizione** selezionare la sottoscrizione in cui viene eseguita la distribuzione. Per **Gruppo di risorse** usare **Seleziona esistente** e inserire la macchina virtuale nello stesso gruppo di risorse dell'app Web dell'hub di Azure Stack.
 
@@ -90,16 +90,16 @@ Prima di iniziare a creare questa soluzione, verificare di soddisfare i requisit
 
 7. In **Impostazioni > Configura funzionalità facoltative** configurare le impostazioni seguenti:
 
-   - **Account di archiviazione**: se necessario, creare un nuovo account.
-   - **Rete virtuale**:
+   - **Account di archiviazione** : se necessario, creare un nuovo account.
+   - **Rete virtuale** :
 
      > [!Important]  
      > Assicurarsi che la macchina virtuale SQL Server sia distribuita nella stessa rete virtuale dei gateway VPN.
 
-   - **Indirizzo IP pubblico**: usare le impostazioni predefinite.
+   - **Indirizzo IP pubblico** : usare le impostazioni predefinite.
    - **Network security group** (Gruppo di sicurezza di rete): (NSG). Creare un nuovo gruppo di sicurezza di rete.
-   - **Estensioni e Monitoraggio**: Mantenere le impostazioni predefinite.
-   - **Account di archiviazione di diagnostica**: se necessario, creare un nuovo account.
+   - **Estensioni e Monitoraggio** : Mantenere le impostazioni predefinite.
+   - **Account di archiviazione di diagnostica** : se necessario, creare un nuovo account.
    - Selezionare **OK** per salvare la configurazione.
 
      ![Configurare le funzionalità della macchina virtuale facoltative nel portale utenti dell'hub di Azure Stack](media/solution-deployment-guide-hybrid/image4.png)
@@ -107,13 +107,13 @@ Prima di iniziare a creare questa soluzione, verificare di soddisfare i requisit
 8. In **Impostazioni di SQL Server** configurare le impostazioni seguenti:
 
    - Per **Connettività SQL** selezionare **Pubblico (Internet)** .
-   - Per **Porta** mantenere l'impostazione predefinita **1433**.
-   - Per **Autenticazione SQL** selezionare **Abilita**.
+   - Per **Porta** mantenere l'impostazione predefinita **1433** .
+   - Per **Autenticazione SQL** selezionare **Abilita** .
 
      > [!Note]  
-     > Quando si abilita l'autenticazione SQL, vengono inserite automaticamente le informazioni "SQLAdmin" configurate in **Generale**.
+     > Quando si abilita l'autenticazione SQL, vengono inserite automaticamente le informazioni "SQLAdmin" configurate in **Generale** .
 
-   - Per le impostazioni rimanenti, mantenere le impostazioni predefinite. Selezionare **OK**.
+   - Per le impostazioni rimanenti, mantenere le impostazioni predefinite. Selezionare **OK** .
 
      ![Configurare le impostazioni di SQL Server nel portale utenti dell'hub di Azure Stack](media/solution-deployment-guide-hybrid/image5.png)
 
@@ -121,7 +121,7 @@ Prima di iniziare a creare questa soluzione, verificare di soddisfare i requisit
 
     ![Riepilogo della configurazione nel portale utenti dell'hub di Azure Stack](media/solution-deployment-guide-hybrid/image6.png)
 
-10. La creazione della nuova macchina virtuale richiede tempo. È possibile visualizzare lo stato delle macchine virtuali in **Macchine virtuali**.
+10. La creazione della nuova macchina virtuale richiede tempo. È possibile visualizzare lo stato delle macchine virtuali in **Macchine virtuali** .
 
     ![Stato delle macchine virtuali nel portale utenti dell'hub di Azure Stack](media/solution-deployment-guide-hybrid/image7.png)
 
@@ -153,7 +153,7 @@ Per offrire connettività tra il front-end Web in Azure e il database SQL Server
 
 Il gateway di rete virtuale sul lato Azure della rete ibrida deve consentire le connessioni da punto a sito per l'integrazione con il Servizio app di Azure.
 
-1. In Azure passare alla pagina del gateway di rete virtuale. In **Impostazioni** selezionare **Configurazione da punto a sito**.
+1. Nel portale di Azure passare alla pagina del gateway di rete virtuale. In **Impostazioni** selezionare **Configurazione da punto a sito** .
 
     ![Opzione da punto a sito nel gateway di rete virtuale di Azure](media/solution-deployment-guide-hybrid/image8.png)
 
@@ -161,12 +161,12 @@ Il gateway di rete virtuale sul lato Azure della rete ibrida deve consentire le 
 
     ![Iniziare la configurazione da punto a sito nel gateway di rete virtuale di Azure](media/solution-deployment-guide-hybrid/image9.png)
 
-3. Nella pagina di configurazione **Da punto a sito** immettere l'intervallo di indirizzi IP privati che si vuole usare in **Pool di indirizzi**.
+3. Nella pagina di configurazione **Da punto a sito** immettere l'intervallo di indirizzi IP privati che si vuole usare in **Pool di indirizzi** .
 
    > [!Note]  
    > Verificare che l'intervallo specificato non si sovrapponga ad altri intervalli di indirizzi già usati dalle subnet nei componenti di Azure globale e dell'hub di Azure Stack della rete ibrida.
 
-   In **Tipo di tunnel** deselezionare **VPN IKEv2**. Selezionare **Salva** per completare la configurazione da punto a sito.
+   In **Tipo di tunnel** deselezionare **VPN IKEv2** . Selezionare **Salva** per completare la configurazione da punto a sito.
 
    ![Impostazioni da punto a sito nel gateway di rete virtuale di Azure](media/solution-deployment-guide-hybrid/image10.png)
 
@@ -174,11 +174,11 @@ Il gateway di rete virtuale sul lato Azure della rete ibrida deve consentire le 
 
 1. Per connettere l'app alla VNet di Azure, seguire le istruzioni riportate in [Integrazione rete virtuale richiesta dal gateway](/azure/app-service/web-sites-integrate-with-vnet#gateway-required-vnet-integration).
 
-2. Passare a **Impostazioni** per il piano di servizio app che ospita l'app Web. In **Impostazioni** selezionare **Rete**.
+2. Passare a **Impostazioni** per il piano di servizio app che ospita l'app Web. In **Impostazioni** selezionare **Rete** .
 
     ![Configurare la rete per il piano di servizio app](media/solution-deployment-guide-hybrid/image11.png)
 
-3. In **Integrazione rete virtuale** selezionare **Fare clic qui per la gestione**.
+3. In **Integrazione rete virtuale** selezionare **Fare clic qui per la gestione** .
 
     ![Gestire l'integrazione rete virtuale per il piano di servizio app](media/solution-deployment-guide-hybrid/image12.png)
 
@@ -192,7 +192,7 @@ Per altre informazioni sull'integrazione del servizio app con le reti virtuali d
 
 Il gateway di rete locale nella rete virtuale dell'hub di Azure Stack deve essere configurato in modo da instradare il traffico dall'intervallo di indirizzi da punto a sito del servizio app.
 
-1. Nell'hub di Azure Stack passare a **Gateway di rete locale**. In **Impostazioni** selezionare **Configurazione**.
+1. Nel portale Hub di Azure Stack passare a **Gateway di rete virtuale** . In **Impostazioni** selezionare **Configurazione** .
 
     ![Opzione di configurazione del gateway nel gateway di rete locale dell'hub di Azure Stack](media/solution-deployment-guide-hybrid/image14.png)
 
@@ -212,9 +212,9 @@ Questa esercitazione usa DNS di Azure per la gestione del DNS poiché i domini d
 
 Poiché Gestione traffico si basa su CNAME DNS, è necessario un sottodominio per instradare correttamente il traffico agli endpoint. Per altre informazioni sui record DNS e sul mapping del dominio, vedere [Mappare i domini con Gestione traffico](/azure/app-service/web-sites-traffic-manager-custom-domain-name).
 
-Per l'endpoint di Azure verrà creato un sottodominio che gli utenti possono usare per accedere all'app Web. Per questa esercitazione, è possibile usare **app.northwind.com**, ma è necessario personalizzare questo valore in base al proprio dominio.
+Per l'endpoint di Azure verrà creato un sottodominio che gli utenti possono usare per accedere all'app Web. Per questa esercitazione, è possibile usare **app.northwind.com** , ma è necessario personalizzare questo valore in base al proprio dominio.
 
-Sarà anche necessario creare un sottodominio con un record A per l'endpoint dell'hub di Azure Stack. È possibile usare **azurestack.northwind.com**.
+Sarà anche necessario creare un sottodominio con un record A per l'endpoint dell'hub di Azure Stack. È possibile usare **azurestack.northwind.com** .
 
 ### <a name="configure-a-custom-domain-in-azure"></a>Configurare un dominio personalizzato in Azure
 
@@ -238,13 +238,13 @@ Per aggiungere SSL ad Azure:
 
 1. Verificare che il certificato SSL ottenuto sia valido per il sottodominio creato. È possibile usare certificati con caratteri jolly.
 
-2. In Azure seguire le istruzioni riportate nelle sezioni **Preparare l'app Web** e **Associare il certificato SSL** dell'articolo [Associare un certificato SSL personalizzato esistente ad app Web di Azure](/azure/app-service/app-service-web-tutorial-custom-ssl). Selezionare **SSL basato su SNI** come **Tipo SSL**.
+2. Nel portale di Azure seguire le istruzioni riportate nelle sezioni **Preparare l'app Web** e **Associare il certificato SSL** dell'articolo [Associare un certificato SSL personalizzato esistente ad app Web di Azure](/azure/app-service/app-service-web-tutorial-custom-ssl). Selezionare **SSL basato su SNI** come **Tipo SSL** .
 
 3. Reindirizzare tutto il traffico alla porta HTTPS. Seguire le istruzioni riportate nella sezione **Applicare HTTPS** dell'articolo [Associare un certificato SSL personalizzato esistente ad app Web di Azure](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 Per aggiungere SSL all'hub di Azure Stack:
 
-1. Ripetere i passaggi 1-3 eseguiti per Azure.
+1. Ripetere i passaggi 1-3 seguiti per Azure usando il portale Hub di Azure Stack.
 
 ## <a name="configure-and-deploy-the-web-app"></a>Configurare e distribuire l'app Web
 
@@ -274,7 +274,7 @@ Ogni istanza dell'app Web userà un metodo diverso per la connessione al databas
         options.UseSqlite("Data Source=localdatabase.db"));
     ```
 
-3. Sostituire il blocco di codice precedente con il codice seguente che usa una stringa di connessione definita nel file *appsettings.json*:
+3. Sostituire il blocco di codice precedente con il codice seguente che usa una stringa di connessione definita nel file *appsettings.json* :
 
     ```C#
     services.AddDbContext<MyDatabaseContext>(options =>
@@ -300,46 +300,46 @@ Quando si crea l'app Web in un ambiente del servizio app, il servizio viene avvi
 
 ### <a name="enable-automatic-scale-out"></a>Abilitare l'aumento automatico di istanze
 
-1. In Azure trovare il piano di servizio app per i siti per cui si vuole aumentare il numero di istanze e quindi selezionare **Aumenta istanze (piano di servizio app)** .
+1. Nel portale di Azure individuare il piano di servizio app per i siti di cui aumentare il numero di istanze, quindi selezionare **Aumenta istanze (piano di servizio app)** .
 
     ![Aumentare le istanze del Servizio app di Azure](media/solution-deployment-guide-hybrid/image16.png)
 
-2. Selezionare **Abilita scalabilità automatica**.
+2. Selezionare **Abilita scalabilità automatica** .
 
     ![Abilitare la scalabilità automatica nel servizio app di Azure](media/solution-deployment-guide-hybrid/image17.png)
 
-3. Immettere un nome per **Nome impostazione di scalabilità automatica**. Per il valore della regola di scalabilità automatica **Predefinito**, selezionare **Ridimensiona in base a una metrica**. Impostare **Limiti per le istanze** su **Minimo: 1**, **Massimo: 10** e **Predefinito: 1**.
+3. Immettere un nome per **Nome impostazione di scalabilità automatica** . Per il valore della regola di scalabilità automatica **Predefinito** , selezionare **Ridimensiona in base a una metrica** . Impostare **Limiti per le istanze** su **Minimo: 1** , **Massimo: 10** e **Predefinito: 1** .
 
     ![Configurare la scalabilità automatica nel servizio app di Azure](media/solution-deployment-guide-hybrid/image18.png)
 
-4. Selezionare **+Aggiungi una regola**.
+4. Selezionare **+Aggiungi una regola** .
 
-5. In **Origine metrica** selezionare **Risorsa corrente**. Usare i criteri e le azioni seguenti per la regola.
+5. In **Origine metrica** selezionare **Risorsa corrente** . Usare i criteri e le azioni seguenti per la regola.
 
 #### <a name="criteria"></a>Criteri
 
-1. In **Aggregazione temporale** selezionare **Medio**.
+1. In **Aggregazione temporale** selezionare **Medio** .
 
-2. In **Nome metrica** selezionare **Percentuale CPU**.
+2. In **Nome metrica** selezionare **Percentuale CPU** .
 
-3. In **Operatore** selezionare **Maggiore di**.
+3. In **Operatore** selezionare **Maggiore di** .
 
-   - Impostare la **Soglia** su **50**.
-   - Impostare la **Durata** su **10**.
+   - Impostare la **Soglia** su **50** .
+   - Impostare la **Durata** su **10** .
 
 #### <a name="action"></a>Azione
 
-1. In **Operazione** selezionare **Aumenta numero di**.
+1. In **Operazione** selezionare **Aumenta numero di** .
 
-2. Impostare il **Numero di istanze** su **2**.
+2. Impostare il **Numero di istanze** su **2** .
 
-3. Impostare **Disattiva regole dopo** su **5**.
+3. Impostare **Disattiva regole dopo** su **5** .
 
-4. Selezionare **Aggiungi**.
+4. Selezionare **Aggiungi** .
 
-5. Selezionare **+ Aggiungi una regola**.
+5. Selezionare **+ Aggiungi una regola** .
 
-6. In **Origine metrica** selezionare **Risorsa corrente**.
+6. In **Origine metrica** selezionare **Risorsa corrente** .
 
    > [!Note]  
    > La risorsa corrente conterrà il nome/GUID del piano di servizio app e gli elenchi a discesa **Tipo di risorsa** e **Risorsa** non saranno disponibili.
@@ -348,45 +348,45 @@ Quando si crea l'app Web in un ambiente del servizio app, il servizio viene avvi
 
 Quando il traffico diminuisce, l'app Web di Azure può ridurre automaticamente il numero di istanze attive per ridurre i costi. Questa azione è meno aggressiva rispetto allo scale-out e riduce al minimo l'effetto sugli utenti dell'app.
 
-1. Passare alla condizione di scale-out **Predefinito**, quindi selezionare **+ Aggiungi una regola**. Usare i criteri e le azioni seguenti per la regola.
+1. Passare alla condizione di scale-out **Predefinito** , quindi selezionare **+ Aggiungi una regola** . Usare i criteri e le azioni seguenti per la regola.
 
 #### <a name="criteria"></a>Criteri
 
-1. In **Aggregazione temporale** selezionare **Medio**.
+1. In **Aggregazione temporale** selezionare **Medio** .
 
-2. In **Nome metrica** selezionare **Percentuale CPU**.
+2. In **Nome metrica** selezionare **Percentuale CPU** .
 
-3. In **Operatore** selezionare **Minore di**.
+3. In **Operatore** selezionare **Minore di** .
 
-   - Impostare la **Soglia** su **30**.
-   - Impostare la **Durata** su **10**.
+   - Impostare la **Soglia** su **30** .
+   - Impostare la **Durata** su **10** .
 
 #### <a name="action"></a>Azione
 
-1. In **Operazione** selezionare **Riduci numero di**.
+1. In **Operazione** selezionare **Riduci numero di** .
 
-   - Impostare il **Numero di istanze** su **1**.
-   - Impostare **Disattiva regole dopo** su **5**.
+   - Impostare il **Numero di istanze** su **1** .
+   - Impostare **Disattiva regole dopo** su **5** .
 
-2. Selezionare **Aggiungi**.
+2. Selezionare **Aggiungi** .
 
 ## <a name="create-a-traffic-manager-profile-and-configure-cross-cloud-scaling"></a>Creare un profilo di Gestione traffico e configurare il ridimensionamento tra cloud
 
-Creare un profilo di Gestione traffico in Azure e quindi configurare gli endpoint per abilitare il ridimensionamento tra cloud.
+Creare un profilo di Gestione traffico usando il portale di Azure, quindi configurare l'endpoint per abilitare il dimensionamento tra cloud.
 
 ### <a name="create-traffic-manager-profile"></a>Creare un profilo di Gestione traffico
 
-1. Selezionare **Crea una risorsa**.
-2. Selezionare **Rete**.
+1. Selezionare **Crea una risorsa** .
+2. Selezionare **Rete** .
 3. Selezionare **Profilo di Gestione traffico** e configurare le impostazioni seguenti:
 
    - In **Nome** immettere un nome per il profilo. Questo nome **deve** essere univoco nella zona trafficmanager.net e viene usato per creare un nuovo nome DNS (ad esempio, northwindstore.trafficmanager.net).
-   - Per **Metodo di routing** selezionare **Ponderato**.
+   - Per **Metodo di routing** selezionare **Ponderato** .
    - Per **Sottoscrizione** selezionare la sottoscrizione in cui si vuole creare il profilo.
    - In **Gruppo di risorse** creare un nuovo gruppo di risorse per il profilo.
    - In **Località del gruppo di risorse** selezionare la località del gruppo di risorse. Questa impostazione indica la posizione del gruppo di risorse e non ha alcun impatto sul profilo di Gestione traffico che viene distribuito a livello globale.
 
-4. Selezionare **Crea**.
+4. Selezionare **Crea** .
 
     ![Creare un profilo di Gestione traffico](media/solution-deployment-guide-hybrid/image19.png)
 
@@ -396,49 +396,49 @@ Creare un profilo di Gestione traffico in Azure e quindi configurare gli endpoin
 
 1. Cercare il profilo di Gestione traffico creato. Se si è passati al gruppo di risorse per il profilo, selezionare il profilo.
 
-2. In **Profilo di Gestione traffico** in **IMPOSTAZIONI** selezionare **Endpoint**.
+2. In **Profilo di Gestione traffico** in **IMPOSTAZIONI** selezionare **Endpoint** .
 
-3. Selezionare **Aggiungi**.
+3. Selezionare **Aggiungi** .
 
 4. In **Aggiungi endpoint** usare le impostazioni seguenti per l'hub di Azure Stack:
 
-   - Per **Tipo** selezionare **Endpoint esterno**.
+   - Per **Tipo** selezionare **Endpoint esterno** .
    - Immettere un **Nome** per l'endpoint.
    - Per **Nome di dominio completo (FQDN) o indirizzo IP** immettere l'URL esterno dell'app Web dell'hub di Azure Stack.
-   - Per **Peso** mantenere l'impostazione predefinita **1**. In questo modo tutto il traffico viene instradato a questo endpoint se è integro.
-   - Mantenere deselezionata l'opzione **Aggiungi come disabilitato**.
+   - Per **Peso** mantenere l'impostazione predefinita **1** . In questo modo tutto il traffico viene instradato a questo endpoint se è integro.
+   - Mantenere deselezionata l'opzione **Aggiungi come disabilitato** .
 
 5. Selezionare **OK** per salvare l'endpoint dell'hub di Azure Stack.
 
 L'endpoint di Azure verrà configurato successivamente.
 
-1. In **Profilo di Gestione traffico** selezionare **Endpoint**.
-2. Selezionare **+Aggiungi**.
+1. In **Profilo di Gestione traffico** selezionare **Endpoint** .
+2. Selezionare **+Aggiungi** .
 3. In **Aggiungi endpoint** usare le impostazioni seguenti per Azure:
 
-   - Per **Tipo** selezionare **Endpoint Azure**.
+   - Per **Tipo** selezionare **Endpoint Azure** .
    - Immettere un **Nome** per l'endpoint.
-   - Per **Tipo di risorsa di destinazione** selezionare **Servizio app**.
+   - Per **Tipo di risorsa di destinazione** selezionare **Servizio app** .
    - Per **Risorsa di destinazione** selezionare **Scegliere un servizio app** per visualizzare un elenco di app Web nella stessa sottoscrizione.
    - In **Risorsa** selezionare il servizio App che si vuole aggiungere come primo endpoint.
-   - Per **Peso** selezionare **2**. Questa impostazione determina l'indirizzamento di tutto il traffico a questo endpoint se l'endpoint primario non è integro o se è presente una regola o un avviso che reindirizza il traffico quando viene attivato.
-   - Mantenere deselezionata l'opzione **Aggiungi come disabilitato**.
+   - Per **Peso** selezionare **2** . Questa impostazione determina l'indirizzamento di tutto il traffico a questo endpoint se l'endpoint primario non è integro o se è presente una regola o un avviso che reindirizza il traffico quando viene attivato.
+   - Mantenere deselezionata l'opzione **Aggiungi come disabilitato** .
 
 4. Selezionare **OK** per salvare l'endpoint di Azure.
 
-Dopo aver configurato entrambi gli endpoint, gli endpoint vengono elencati in **Profilo di Gestione traffico** quando si seleziona **Endpoint**. L'esempio dello screenshot seguente mostra due endpoint con le relative informazioni sullo stato e sulla configurazione.
+Dopo aver configurato entrambi gli endpoint, gli endpoint vengono elencati in **Profilo di Gestione traffico** quando si seleziona **Endpoint** . L'esempio dello screenshot seguente mostra due endpoint con le relative informazioni sullo stato e sulla configurazione.
 
 ![Endpoint nel profilo di Gestione traffico](media/solution-deployment-guide-hybrid/image20.png)
 
-## <a name="set-up-application-insights-monitoring-and-alerting"></a>Configurare il monitoraggio e gli avvisi di Application Insights
+## <a name="set-up-application-insights-monitoring-and-alerting-in-azure"></a>Configurare il monitoraggio e gli avvisi di Application Insights in Azure
 
 Azure Application Insights consente di monitorare l'app e inviare avvisi in base alle condizioni configurate. Alcuni esempi sono: l'app non è disponibile, sta riscontrando errori o presenta problemi di prestazioni.
 
-Per creare avvisi si useranno le metriche di Application Insights. Quando si attivano questi avvisi, l'istanza dell'app Web passa automaticamente dall'hub di Azure Stack ad Azure per l'aumento delle istanze e quindi torna all'hub di Azure Stack per la riduzione.
+Per creare gli avvisi si useranno le metriche di Azure Application Insights. Quando si attivano questi avvisi, l'istanza dell'app Web passa automaticamente dall'hub di Azure Stack ad Azure per l'aumento delle istanze e quindi torna all'hub di Azure Stack per la riduzione.
 
 ### <a name="create-an-alert-from-metrics"></a>Creare un avviso dalle metriche
 
-Passare al gruppo di risorse per questa esercitazione e quindi selezionare l'istanza di Application Insights per aprire **Application Insights**.
+Nel portale di Azure passare al gruppo di risorse di questa esercitazione e quindi selezionare l'istanza di Application Insights per aprire **Application Insights** .
 
 ![Application Insights](media/solution-deployment-guide-hybrid/image21.png)
 
@@ -450,20 +450,20 @@ Questa visualizzazione verrà usata per creare un avviso di aumento delle istanz
 2. Selezionare **Aggiungi avviso per la metrica (versione classica)** .
 3. In **Aggiungi regola** configurare le impostazioni seguenti:
 
-   - Per **Nome** immettere **Entra in Azure Cloud**.
+   - Per **Nome** immettere **Entra in Azure Cloud** .
    - La **Descrizione** è facoltativa.
-   - In **Origine** > **Avviso per** selezionare **Metriche**.
+   - In **Origine** > **Avviso per** selezionare **Metriche** .
    - In **Criteri** selezionare la sottoscrizione, il gruppo di risorse per il profilo di Gestione traffico e il nome del profilo di Gestione traffico per la risorsa.
 
-4. Per **Metrica** selezionare **Velocità richiesta**.
-5. Per **Condizione** selezionare **Maggiore di**.
-6. Per **Soglia** immettere **2**.
-7. Per **Periodo** selezionare **Negli ultimi 5 minuti**.
-8. In **Notifica tramite**:
-   - Selezionare la casella di controllo **Invia messaggio di posta elettronica a proprietari, collaboratori e lettori**.
-   - Immettere l'indirizzo e-mail per **Indirizzi di posta elettronica aggiuntivi dell'amministratore**.
+4. Per **Metrica** selezionare **Velocità richiesta** .
+5. Per **Condizione** selezionare **Maggiore di** .
+6. Per **Soglia** immettere **2** .
+7. Per **Periodo** selezionare **Negli ultimi 5 minuti** .
+8. In **Notifica tramite** :
+   - Selezionare la casella di controllo **Invia messaggio di posta elettronica a proprietari, collaboratori e lettori** .
+   - Immettere l'indirizzo e-mail per **Indirizzi di posta elettronica aggiuntivi dell'amministratore** .
 
-9. Nella barra dei menu selezionare **Salva**.
+9. Nella barra dei menu selezionare **Salva** .
 
 ### <a name="create-the-scale-in-alert"></a>Creare l'avviso di riduzione delle istanze
 
@@ -471,20 +471,20 @@ Questa visualizzazione verrà usata per creare un avviso di aumento delle istanz
 2. Selezionare **Aggiungi avviso per la metrica (versione classica)** .
 3. In **Aggiungi regola** configurare le impostazioni seguenti:
 
-   - Per **Nome** immettere **Torna all'hub di Azure Stack**.
+   - Per **Nome** immettere **Torna all'hub di Azure Stack** .
    - La **Descrizione** è facoltativa.
-   - In **Origine** > **Avviso per** selezionare **Metriche**.
+   - In **Origine** > **Avviso per** selezionare **Metriche** .
    - In **Criteri** selezionare la sottoscrizione, il gruppo di risorse per il profilo di Gestione traffico e il nome del profilo di Gestione traffico per la risorsa.
 
-4. Per **Metrica** selezionare **Velocità richiesta**.
-5. Per **Condizione** selezionare **Minore di**.
-6. Per **Soglia** immettere **2**.
-7. Per **Periodo** selezionare **Negli ultimi 5 minuti**.
-8. In **Notifica tramite**:
-   - Selezionare la casella di controllo **Invia messaggio di posta elettronica a proprietari, collaboratori e lettori**.
-   - Immettere l'indirizzo e-mail per **Indirizzi di posta elettronica aggiuntivi dell'amministratore**.
+4. Per **Metrica** selezionare **Velocità richiesta** .
+5. Per **Condizione** selezionare **Minore di** .
+6. Per **Soglia** immettere **2** .
+7. Per **Periodo** selezionare **Negli ultimi 5 minuti** .
+8. In **Notifica tramite** :
+   - Selezionare la casella di controllo **Invia messaggio di posta elettronica a proprietari, collaboratori e lettori** .
+   - Immettere l'indirizzo e-mail per **Indirizzi di posta elettronica aggiuntivi dell'amministratore** .
 
-9. Nella barra dei menu selezionare **Salva**.
+9. Nella barra dei menu selezionare **Salva** .
 
 Lo screenshot seguente mostra gli avvisi per l'aumento e la riduzione di istanze.
 
@@ -502,14 +502,14 @@ Quando il sito Web raggiunge le soglie configurate, si riceverà un avviso. Per 
 
     ![Endpoint di Gestione traffico nel portale di Azure](media/solution-deployment-guide-hybrid/image20.png)
 
-2. Selezionare **Endpoint**.
-3. Selezionare l'**Endpoint Azure**.
-4. In **Stato** selezionare **Abilitato** e quindi selezionare **Salva**.
+2. Selezionare **Endpoint** .
+3. Selezionare l' **Endpoint Azure** .
+4. In **Stato** selezionare **Abilitato** e quindi selezionare **Salva** .
 
     ![Abilitare l'endpoint di Azure nel portale di Azure](media/solution-deployment-guide-hybrid/image23.png)
 
-5. In **Endpoint** per il profilo di Gestione traffico selezionare **Endpoint esterno**.
-6. In **Stato** selezionare **Disabilitato** e quindi selezionare **Salva**.
+5. In **Endpoint** per il profilo di Gestione traffico selezionare **Endpoint esterno** .
+6. In **Stato** selezionare **Disabilitato** e quindi selezionare **Salva** .
 
     ![Disabilitare l'endpoint dell'hub di Azure Stack nel portale di Azure](media/solution-deployment-guide-hybrid/image24.png)
 
