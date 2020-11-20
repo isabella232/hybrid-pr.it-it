@@ -1,8 +1,8 @@
-- name: Documentazione delle funzionalità ibride di Azure
+- name: Documentazione di soluzioni ibride e multicloud
   href: index.yml
 - name: Panoramica
   items:
-    - name: Esempi di soluzioni e modelli ibridi
+    - name: Modelli ed esempi di soluzioni
       href: overview-patterns-solution-examples.md
 - name: Modelli
   items:
@@ -58,7 +58,7 @@
       href: 'https://aka.ms/edgetrainingdeploy'
 - name: Concetti
   items:
-    - name: Considerazioni per la progettazione di app ibride
+    - name: Considerazioni sulla progettazione di app
       href: overview-app-design-considerations.md
 - name: Risorse correlate
   items:
