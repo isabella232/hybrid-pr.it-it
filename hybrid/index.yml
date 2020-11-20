@@ -1,21 +1,21 @@
 ### YamlMime:Hub
-title: Documentazione delle soluzioni ibride di Azure
-summary: Risorse per lo sviluppo e la gestione di soluzioni ibride che si estendono nel cloud globale, nel data center e al perimetro.
+title: Documentazione di soluzioni ibride e multicloud di Azure
+summary: Risorse per lo sviluppo e la gestione di soluzioni ibride e multicloud che si estendono nel cloud globale, nel data center e al perimetro.
 brand: azure
 metadata:
-  title: Documentazione del cloud ibrido di Azure
-  description: Risorse per lo sviluppo e la gestione di soluzioni ibride che si estendono nel cloud globale, nel data center e al perimetro.
+  title: Documentazione del cloud ibrido e multicloud di Azure
+  description: Risorse per lo sviluppo e la gestione di soluzioni ibride e multicloud che si estendono nel cloud globale, nel data center e al perimetro.
   ms.service: multiple
   ms.topic: hub-page
   author: BryanLa
   ms.author: bryanla
-  ms.date: 09/02/2020
-  ms.openlocfilehash: 823d9f2f8823c47854647ce378c6866978df7feb
-  ms.sourcegitcommit: 6be3914e28349883dba004697dc550a6fd1b7393
+  ms.date: 11/16/2020
+  ms.openlocfilehash: 23c1d6e1444e637a8e012b2628d3dfbafe903b3e
+  ms.sourcegitcommit: 40117c1f26640d276fcdb9c760bb4e508c0c6003
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/30/2020
-  ms.locfileid: "93062917"
+  ms.lasthandoff: 11/18/2020
+  ms.locfileid: "94873024"
 highlightedContent:
   items:
   - title: Introduzione al data center modulare di Azure
@@ -43,8 +43,8 @@ highlightedContent:
     itemType: video
     url: https://mybuild.microsoft.com/sessions?q=%2522%2520intelligent%2520edge%2520%2522%2520%2522%2520sql%2520edge%2520%2522
 productDirectory:
-  title: Piattaforma di cloud ibrido di Azure
-  summary: Piattaforme con supporto dell'ibrido usate per sviluppare e gestire soluzioni ibride.
+  title: Piattaforma ibrida e multicloud di Azure
+  summary: Piattaforme usate per sviluppare e gestire soluzioni ibride e multicloud.
   items:
   - title: Piattaforma di cloud pubblico/sovrano globale di Azure.
     imageSrc: media/index/logo_azure.svg
@@ -70,8 +70,8 @@ productDirectory:
     - url: /windows/iot-core/
       text: Windows per IoT
 conceptualContent:
-  title: Tecnologie di supporto dell'ibrido
-  summary: Servizi e prodotti per lo sviluppo e la gestione di soluzioni ibride.
+  title: Tecnologie ibride e multicloud
+  summary: Servizi e prodotti per lo sviluppo e la gestione di soluzioni ibride e multicloud.
   items:
   - title: Intelligenza artificiale e Machine Learning
     links:
@@ -155,7 +155,7 @@ conceptualContent:
       text: Hub eventi nell'hub di Azure Stack
     - url: /azure-stack/user/iot-hub-overview
       itemType: overview
-      text: Hub IoT nell'hub di Azure Stack
+      text: Hub IoT nell'hub di Azure Stack (anteprima)
   - title: Microsoft Edge
     links:
     - url: /azure/databox-online/data-box-gateway-overview
@@ -164,6 +164,9 @@ conceptualContent:
     - url: /azure/iot-edge/
       itemType: overview
       text: Azure IoT Edge
+    - url: /azure/iot-edge/how-to-install-iot-edge-kubernetes
+      itemType: overview
+      text: Azure IoT Edge in Kubernetes
     - url: /azure-sphere
       itemType: overview
       text: Azure Sphere
@@ -173,9 +176,6 @@ conceptualContent:
     - url: /azure/azure-sql-edge/overview
       itemType: overview
       text: SQL Edge di Azure (anteprima)
-    - url: /azure/iot-edge/how-to-install-iot-edge-kubernetes
-      itemType: overview
-      text: IoT Edge in Kubernetes
     - url: /windows/iot-core/
       itemType: overview
       text: Windows per IoT
@@ -273,16 +273,16 @@ conceptualContent:
       text: Azure FXT Edge Filer
 additionalContent:
   sections:
-  - title: Soluzioni ibride
-    summary: Materiale sussidiario ed esempi da esplorare e riutilizzare per i progetti ibridi.
+  - title: Soluzioni ibride e multicloud
+    summary: Indicazioni ed esempi per esplorare e riutilizzare soluzioni per i progetti ibridi e multicloud.
     items:
-    - title: Esempi di soluzioni e modelli di app ibride
+    - title: Modelli di app ed esempi di soluzioni
       links:
       - url: ./app-solutions/overview-patterns-solution-examples.md
         text: Che cosa sono gli esempi di soluzioni e i modelli?
       - url: ./app-solutions/overview-app-design-considerations.md
-        text: Considerazioni per la progettazione di app ibride
-    - title: Esplorare i modelli di app ibrida
+        text: Considerazioni sulla progettazione di app
+    - title: Esplorare i modelli di app
       links:
       - url: ./app-solutions/pattern-cross-cloud-scale.md
         text: Scalabilità tra cloud
@@ -292,7 +292,7 @@ additionalContent:
         text: Rilevamento del footfall (retail)
       - url: ./app-solutions/pattern-geo-distributed.md
         text: App con distribuzione geografica
-    - title: Distribuire esempi di soluzioni per app ibride
+    - title: Distribuire esempi di soluzioni per app
       links:
       - url: ./app-solutions/solution-deployment-guide-cross-cloud-scaling.md
         text: Scalabilità tra cloud
