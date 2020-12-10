@@ -26,6 +26,8 @@
           href: pattern-cross-cloud-scale-onprem-data.md
         - name: Rilevamento del footfall (retail)
           href: pattern-retail-footfall-detection.md
+        - name: Cluster Kubernetes a disponibilità elevata
+          href: pattern-highly-available-kubernetes.md
         - name: Rilevamento dell'esaurimento di scorte al perimetro
           href: pattern-out-of-stock-at-edge.md
 - name: Guide alla distribuzione di soluzioni
@@ -40,6 +42,8 @@
       href: solution-deployment-guide-retail-footfall-detection.md
     - name: App con distribuzione geografica
       href: solution-deployment-guide-geo-distributed.md
+    - name: Cluster Kubernetes a disponibilità elevata
+      href: solution-deployment-guide-highly-available-kubernetes.md
     - name: Connettività ibrida
       href: solution-deployment-guide-connectivity.md
     - name: Identità ibrida
