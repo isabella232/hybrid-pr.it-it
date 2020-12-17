@@ -7,14 +7,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: def9abaa2a7231648f11453f66119399be015a4d
-ms.sourcegitcommit: 485a1f97fa1579364e2be1755cadfc5ea89db50e
+ms.openlocfilehash: 624f032def509d8e42d55807d72176e5fce85910
+ms.sourcegitcommit: df7e3e6423c3d4e8a42dae3d1acfba1d55057258
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91852508"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901508"
 ---
-# <a name="deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack-hub"></a>Distribuire una soluzione MongoDB a disponibilità elevata in Azure e nell'hub di Azure Stack
+# <a name="deploy-a-highly-available-mongodb-solution-across-two-azure-stack-hub-environments"></a>Distribuire una soluzione MongoDB a disponibilità elevata tra due ambienti di hub di Azure Stack
 
 Questo articolo illustra una distribuzione automatizzata di un cluster MongoDB a disponibilità elevata di base con un sito di ripristino di emergenza tra due ambienti dell'hub di Azure Stack. Per altre informazioni su MongoDB e sulla disponibilità elevata, vedere [Membri del set di repliche](https://docs.mongodb.com/manual/core/replica-set-members/).
 

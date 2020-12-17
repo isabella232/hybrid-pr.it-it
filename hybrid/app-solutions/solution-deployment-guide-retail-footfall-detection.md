@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 5f2e18e164e54f60b1bb7a14026a0c75c7d7ce69
-ms.sourcegitcommit: d2def847937178f68177507be151df2aa8e25d53
+ms.openlocfilehash: 2177b32474dea695967e197acbd4bc1e18422d7b
+ms.sourcegitcommit: df7e3e6423c3d4e8a42dae3d1acfba1d55057258
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86477168"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901491"
 ---
 # <a name="deploy-an-ai-based-footfall-detection-solution-using-azure-and-azure-stack-hub"></a>Distribuire una soluzione di rilevamento del footfall basata sull'intelligenza artificiale usando Azure e l'hub di Azure Stack
 
@@ -26,7 +26,7 @@ In questa soluzione si apprenderà come:
 > - Usare il Custom Vision AI Dev Kit per l'inferenza perimetrale.
 
 > [!Tip]  
-> ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![Diagramma dei concetti sulle app ibride](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > L'hub di Microsoft Azure Stack è un'estensione di Azure, che offre all'ambiente locale l'agilità e l'innovazione del cloud computing, abilitando l'unico cloud ibrido che consente di creare e distribuire ovunque app ibride.  
 > 
 > L'articolo [Considerazioni per la progettazione di app ibride](overview-app-design-considerations.md) esamina i concetti fondamentali di qualità del software (posizionamento, scalabilità, disponibilità, resilienza, gestibilità e sicurezza) per la progettazione, la distribuzione e la gestione di app ibride. Le considerazioni di progettazione consentono di ottimizzare la progettazione delle app ibride, riducendo al minimo i rischi negli ambienti di produzione.
@@ -44,7 +44,7 @@ Prima di iniziare a usare questa guida alla distribuzione:
 - Creare due entità servizio nella directory:
   - Una configurata per usare le risorse di Azure, con accesso all'ambito della sottoscrizione di Azure.
   - Una configurata per usare le risorse dell'hub di Azure Stack, con accesso all'ambito della sottoscrizione dell'hub di Azure Stack.
-  - Per altre informazioni sulla creazione di entità servizio e sull'autorizzazione dell'accesso, vedere [Usare un'identità dell'app per accedere alle risorse](/azure-stack/operator/azure-stack-create-service-principals.md). Per usare l'interfaccia della riga di comando di Azure, vedere [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
+  - Per altre informazioni sulla creazione di entità servizio e sull'autorizzazione dell'accesso, vedere [Usare un'identità dell'app per accedere alle risorse](/azure-stack/operator/azure-stack-create-service-principals.md). Per usare l'interfaccia della riga di comando di Azure, vedere [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest&preserve-view=true).
 - Distribuire Servizi cognitivi di Azure in Azure o nell'hub di Azure Stack.
   - Leggere prima [altre informazioni su Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/).
   - Visitare quindi [Distribuire Servizi cognitivi di Azure nell'hub di Azure Stack](/azure-stack/user/azure-stack-solution-template-cognitive-services.md) per distribuire Servizi cognitivi nell'hub di Azure Stack. È prima necessario iscriversi per accedere all'anteprima.
@@ -194,5 +194,5 @@ porter uninstall footfall-camera –tag intelligentedge/footfall-camera-deployme
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su [Considerazioni per la progettazione di app ibride]. (overview-app-design-considerations.md)
+- Altre informazioni sulle [considerazioni per la progettazione di app ibride](overview-app-design-considerations.md)
 - Esaminare e proporre miglioramenti del [codice di questo esempio in GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/footfall-analysis).

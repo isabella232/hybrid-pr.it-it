@@ -7,14 +7,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 2c20d621247ec8e1278feb092586232cc08d5480
-ms.sourcegitcommit: 485a1f97fa1579364e2be1755cadfc5ea89db50e
+ms.openlocfilehash: 0f857515a44ece7f967ade3dee8f493481709851
+ms.sourcegitcommit: c890f2c5e5e5f9f93c921f02dd1a6ca5026d5289
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91852474"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97091803"
 ---
-# <a name="deploy-a-sql-server-2016-availability-group-to-azure-and-azure-stack-hub"></a>Distribuire un gruppo di disponibilità di SQL Server 2016 in Azure e nell'hub di Azure Stack
+# <a name="deploy-a-sql-server-2016-availability-group-across-two-azure-stack-hub-environments"></a>Distribuire un gruppo di disponibilità di SQL Server 2016 tra due ambienti di hub di Azure Stack
 
 Questo articolo illustra una distribuzione automatizzata di un cluster di SQL Server 2016 Enterprise a disponibilità elevata di base con un sito di ripristino di emergenza asincrono tra due ambienti dell'hub di Azure Stack. Per altre informazioni su SQL Server 2016 e sulla disponibilità elevata, vedere [Gruppi di disponibilità Always On: una soluzione per la disponibilità elevata e il ripristino di emergenza](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2016).
 
