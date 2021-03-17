@@ -10,12 +10,12 @@ metadata:
   author: BryanLa
   ms.author: bryanla
   ms.date: 03/09/2021
-  ms.openlocfilehash: 218f52c27dee54dd4265a9c1eebc6de330bd6154
-  ms.sourcegitcommit: a5851a7351c39249a58da8d0cf121bbf0b306dca
+  ms.openlocfilehash: 59508b4cce80dd3a18a3e36feef6690290e26168
+  ms.sourcegitcommit: 25bfa6f85c1295ecbaf24e812ccebf1b7220bef8
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/10/2021
-  ms.locfileid: "102606194"
+  ms.lasthandoff: 03/16/2021
+  ms.locfileid: "103600659"
 highlightedContent:
   items:
   - title: 'Ignite 2021: sessioni ibride'
@@ -336,12 +336,16 @@ additionalContent:
       links:
       - url: /learn/modules/align-requirements-in-azure/
         text: Allineare i requisiti ai tipi di cloud e ai modelli di servizio in Azure
+      - url: /azure/architecture/browse/?azure_categories=hybrid
+        text: Architetture ibride di Azure
       - url: https://azure.microsoft.com/overview/azure-hybrid/
         text: Funzionalità ibride di Azure
       - url: https://www.youtube.com/playlist?list=PLLasX02E8BPDY8lteNSno4etuLx-6bALf
         text: Evento virtuale sulle soluzioni ibride di Azure
+      - url: /azure/cloud-adoption-framework/scenarios/hybrid/scenario-overview
+        text: 'Framework di adozione cloud: scenario ibrido e multicloud'
       - url: /learn/modules/intro-to-azure-hybrid-services/
-        text: Introduzione al cloud ibrido di Azure
+        text: Introduzione ai servizi cloud ibridi di Azure
       - url: https://events.microsoft.com/
         text: Catalogo eventi Microsoft
       - url: /learn
@@ -350,6 +354,10 @@ additionalContent:
       links:
       - url: /learn/modules/azure-sentinel-deploy-configure/
         text: Distribuire Azure Sentinel e connettere le origini dati
+      - url: /learn/modules/expose-hybrid-services-with-azure-relay/
+        text: Esporre servizi ibridi in modo sicuro con Inoltro di Azure
+      - url: /learn/modules/implement-manage-hybrid-identity/
+        text: Implementare e gestire l'identità ibrida
       - url: /learn/modules/implement-hybrid-identity-windows-server/
         text: Implementare l'identità ibrida con Windows Server
       - url: /learn/modules/intro-to-azure-sentinel/
@@ -358,16 +366,18 @@ additionalContent:
         text: Gestione, monitoraggio e sicurezza del cloud ibrido di Windows Server
     - title: Gestione
       links:
-      - url: https://github.com/likamrat/azure_arc
+      - url: https://azurearcjumpstart.io/
         text: Guide di avvio rapido per Azure Arc
-      - url: /learn/modules/describe-high-availability-disaster-recovery-strategies/
-        text: Strategie di disponibilità elevata e ripristino di emergenza
-      - url: /learn/modules/explore-iaas-paas-platform-tools-for-high-availability-disaster-recovery/
-        text: Strumenti delle piattaforme IaaS e PaaS per disponibilità elevata e ripristino di emergenza
+      - url: /learn/browse/?terms=%22%20Arc%20%22
+        text: Moduli di Azure Arc Learn
+      - url: /describe-high-availability-disaster-recovery-strategies/
+        text: Descrizione delle strategie di disponibilità elevata e ripristino di emergenza
+      - url: /learn/browse/?terms="disaster%20recovery"
+        text: Moduli per la formazione sul ripristino di emergenza
+      - url: /learn/browse/?terms="high%20availability"
+        text: Moduli di apprendimento a disponibilità elevata
       - url: /learn/modules/intro-to-azure-arc/
         text: Introduzione ad Azure Arc
-      - url: /learn/modules/manage-hybrid-workloads-azure-arc/
-        text: Gestire carichi di lavoro ibridi con Azure Arc
       - url: /learn/modules/monitor-windows-server-iaas-virtual-machines-hybrid-instances/
         text: Monitorare istanze ibride e macchine virtuali IaaS di Windows Server
       - url: /learn/paths/implement-windows-server-hybrid-cloud-management-monitoring-security/
@@ -388,20 +398,6 @@ additionalContent:
         text: Implementare backup e ripristino ibridi con IaaS Windows Server
   - title: Risorse aggiuntive
     items:
-    - title: Sviluppatore
-      links:
-      - url: /azure/developer/
-        text: Strumenti e documentazione per sviluppatori di Azure
-      - url: /azure/architecture/browse/?azure_categories=hybrid
-        text: Architetture ibride di Azure
-      - url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
-        text: Azure IoT Tools for Visual Studio Code
-      - url: /samples/browse/
-        text: Browser di esempi di Azure
-      - url: https://azure.github.io/Vision-AI-DevKit-Pages/
-        text: Kit per sviluppatori di intelligenza artificiale per la visione
-      - url: /visualstudio/azure/
-        text: Sviluppo di Azure in Visual Studio
     - title: Generale
       links:
       - url: https://azure.microsoft.com/blog/topics/hybrid/
@@ -412,7 +408,7 @@ additionalContent:
         text: Soluzioni dell'hub di Azure Stack di clienti
       - url: https://customers.microsoft.com/en-us/search?sq="hybrid cloud"
         text: Storie di clienti del cloud ibrido
-    - title: Guida e supporto
+    - title: Supporto
       links:
       - url: https://azure.microsoft.com/support/options/
         text: Supporto di Azure
@@ -422,3 +418,15 @@ additionalContent:
         text: Forum di domande e risposte Microsoft
       - url: https://stackoverflow.com/
         text: Stack Overflow
+    - title: Tecnici
+      links:
+      - url: /azure/developer/
+        text: Strumenti e documentazione per sviluppatori di Azure
+      - url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
+        text: Azure IoT Tools for Visual Studio Code
+      - url: /samples/browse/
+        text: Browser di esempi di Azure
+      - url: https://azure.github.io/Vision-AI-DevKit-Pages/
+        text: Kit per sviluppatori di intelligenza artificiale per la visione
+      - url: /visualstudio/azure/
+        text: Sviluppo di Azure in Visual Studio
