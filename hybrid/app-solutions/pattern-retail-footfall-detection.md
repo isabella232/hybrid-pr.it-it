@@ -7,12 +7,12 @@ ms.date: 10/31/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 10/31/2019
-ms.openlocfilehash: 0bf07bb38537f530a0adb3569c43d53af13b8d56
-ms.sourcegitcommit: bb3e40b210f86173568a47ba18c3cc50d4a40607
+ms.openlocfilehash: 866557ec3af2337e9f034da84cf417675508563b
+ms.sourcegitcommit: 962334135b63ac99c715e7bc8fb9282648ba63c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84911227"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104895330"
 ---
 # <a name="footfall-detection-pattern"></a>Modello di rilevamento calpestio
 
@@ -48,10 +48,10 @@ Questa soluzione USA i componenti seguenti:
 |----------|-----------|-------------|
 | Hardware nell'archivio | [Visione personalizzata AI Dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages/) | Consente di filtrare in archivio usando un modello di ML locale che acquisisce solo le immagini di persone per l'analisi. Con provisioning e aggiornamento in modo sicuro tramite l'hub Internet.<br><br>|
 | Azure | [Hub eventi di Azure](/azure/event-hubs/) | Hub eventi di Azure offre una piattaforma scalabile per l'inserimento di dati resi anonimi che si integrano in modo accurato con analisi di flusso di Azure. |
-|  | [Analisi di flusso di Azure](/azure/stream-analytics/) | Un processo di analisi di flusso di Azure aggrega i dati di resi anonimi e li raggruppa in finestre di 15 secondi per la visualizzazione. |
+|  | [Azure Stream Analytics](/azure/stream-analytics/) | Un processo di analisi di flusso di Azure aggrega i dati di resi anonimi e li raggruppa in finestre di 15 secondi per la visualizzazione. |
 |  | [Microsoft Power BI](https://powerbi.microsoft.com/) | Power BI offre un'interfaccia Dashboard di facile utilizzo per la visualizzazione dell'output di analisi di flusso di Azure. |
-| Hub Azure Stack | [Servizio app](/azure-stack/operator/azure-stack-app-service-overview.md) | Il provider di risorse del servizio app fornisce una base per i componenti perimetrali, incluse le funzionalità di hosting e gestione per app Web/API e funzioni. |
-| | Cluster del motore di Azure Kubernetes Service [(AKS)](https://github.com/Azure/aks-engine) | Il componente AKS RP con cluster del motore AKS distribuito in Azure Stack Hub fornisce un motore resiliente e scalabile per l'esecuzione del contenitore di API Viso. |
+| Hub di Azure Stack | [Servizio app](/azure-stack/operator/azure-stack-app-service-overview) | Il provider di risorse del servizio app fornisce una base per i componenti perimetrali, incluse le funzionalità di hosting e gestione per app Web/API e funzioni. |
+| | Cluster del motore di Azure Kubernetes Service [(AKS)](https://github.com/Azure/aks-engine) | Il componente AKS RP con AKS-Engine cluster distribuito nell'hub Azure Stack fornisce un motore resiliente e scalabile per l'esecuzione del contenitore di API Viso. |
 | | [Contenitori di API viso](/azure/cognitive-services/face/face-how-to-install-containers) di servizi cognitivi di Azure| I servizi cognitivi di Azure RP con API Viso contenitori forniscono rilevamento demografico, emotivo e univoco dei visitatori sulla rete privata di contoso. |
 | | Archiviazione BLOB | Le immagini acquisite da AI Dev Kit vengono caricate nell'archiviazione BLOB di Azure Stack Hub. |
 | | Funzioni di Azure | Una funzione di Azure in esecuzione nell'hub Azure Stack riceve l'input dall'archiviazione BLOB e gestisce le interazioni con l'API Viso. Emette i dati di resi anonimi a un cluster di hub eventi che si trova in Azure.<br><br>|
@@ -88,4 +88,4 @@ Per ulteriori informazioni sugli argomenti introdotti in questo articolo:
 - Vedere il [modello di dati a livelli](https://aka.ms/tiereddatadeploy), che viene utilizzato dal modello di rilevamento calpestio.
 - Per altre informazioni sull'uso della visione personalizzata, vedere [visione personalizzata ai Dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages/) . 
 
-Quando si è pronti per testare l'esempio di soluzione, continuare con la [Guida alla distribuzione del rilevamento calpestio](solution-deployment-guide-retail-footfall-detection.md). Nella Guida alla distribuzione vengono fornite istruzioni dettagliate per la distribuzione e il test dei componenti di.
+Quando si è pronti per testare l'esempio di soluzione, continuare con la [Guida alla distribuzione del rilevamento calpestio](solution-deployment-guide-retail-footfall-detection.md). Questa guida contiene istruzioni dettagliate per la distribuzione e il test dei componenti.

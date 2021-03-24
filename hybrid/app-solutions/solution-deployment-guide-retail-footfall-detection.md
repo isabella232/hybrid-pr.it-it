@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 2177b32474dea695967e197acbd4bc1e18422d7b
-ms.sourcegitcommit: df7e3e6423c3d4e8a42dae3d1acfba1d55057258
-ms.translationtype: HT
+ms.openlocfilehash: caedbd4758b9ae8c93cf9bb625ed9aac68bfa196
+ms.sourcegitcommit: 962334135b63ac99c715e7bc8fb9282648ba63c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96901491"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104895365"
 ---
 # <a name="deploy-an-ai-based-footfall-detection-solution-using-azure-and-azure-stack-hub"></a>Distribuire una soluzione di rilevamento del footfall basata sull'intelligenza artificiale usando Azure e l'hub di Azure Stack
 
@@ -27,7 +27,7 @@ In questa soluzione si apprenderà come:
 
 > [!Tip]  
 > ![Diagramma dei concetti sulle app ibride](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
-> L'hub di Microsoft Azure Stack è un'estensione di Azure, che offre all'ambiente locale l'agilità e l'innovazione del cloud computing, abilitando l'unico cloud ibrido che consente di creare e distribuire ovunque app ibride.  
+> L'hub di Microsoft Azure Stack è un'estensione di Azure. L'hub di Azure Stack offre all'ambiente locale l'agilità e l'innovazione del cloud computing, abilitando l'unico cloud ibrido che consente di creare e distribuire ovunque app ibride.  
 > 
 > L'articolo [Considerazioni per la progettazione di app ibride](overview-app-design-considerations.md) esamina i concetti fondamentali di qualità del software (posizionamento, scalabilità, disponibilità, resilienza, gestibilità e sicurezza) per la progettazione, la distribuzione e la gestione di app ibride. Le considerazioni di progettazione consentono di ottimizzare la progettazione delle app ibride, riducendo al minimo i rischi negli ambienti di produzione.
 
@@ -37,22 +37,22 @@ Prima di iniziare a usare questa guida alla distribuzione:
 
 - Rivedere l'argomento [Modello di rilevamento del footfall](pattern-retail-footfall-detection.md).
 - Ottenere un accesso utente ad Azure Stack Development Kit (ASDK) o un'istanza di sistema integrato dell'hub di Azure Stack, con i requisiti seguenti:
-  - Installazione del [servizio app di Azure in un provider di risorse dell'hub di Azure Stack](/azure-stack/operator/azure-stack-app-service-overview.md). È necessario disporre dell'accesso operatore all'istanza dell'hub di Azure Stack o dell'accesso amministratore per poter eseguire l'installazione.
+  - Installazione del [servizio app di Azure in un provider di risorse dell'hub di Azure Stack](/azure-stack/operator/azure-stack-app-service-overview). È necessario disporre dell'accesso operatore all'istanza dell'hub di Azure Stack o dell'accesso amministratore per poter eseguire l'installazione.
   - Sottoscrizione a un'offerta che offre il servizio app e la quota di archiviazione. Per creare un'offerta, è necessario disporre dell'accesso operatore.
 - Ottenere l'accesso a una sottoscrizione di Azure.
   - Se non si dispone di una sottoscrizione di Azure, iscriversi per creare un [account di prova gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 - Creare due entità servizio nella directory:
   - Una configurata per usare le risorse di Azure, con accesso all'ambito della sottoscrizione di Azure.
   - Una configurata per usare le risorse dell'hub di Azure Stack, con accesso all'ambito della sottoscrizione dell'hub di Azure Stack.
-  - Per altre informazioni sulla creazione di entità servizio e sull'autorizzazione dell'accesso, vedere [Usare un'identità dell'app per accedere alle risorse](/azure-stack/operator/azure-stack-create-service-principals.md). Per usare l'interfaccia della riga di comando di Azure, vedere [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest&preserve-view=true).
+  - Per altre informazioni sulla creazione di entità servizio e sull'autorizzazione dell'accesso, vedere [Usare un'identità dell'app per accedere alle risorse](/azure-stack/operator/azure-stack-create-service-principals). Per usare l'interfaccia della riga di comando di Azure, vedere [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest&preserve-view=true).
 - Distribuire Servizi cognitivi di Azure in Azure o nell'hub di Azure Stack.
   - Leggere prima [altre informazioni su Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/).
-  - Visitare quindi [Distribuire Servizi cognitivi di Azure nell'hub di Azure Stack](/azure-stack/user/azure-stack-solution-template-cognitive-services.md) per distribuire Servizi cognitivi nell'hub di Azure Stack. È prima necessario iscriversi per accedere all'anteprima.
+  - Visitare quindi [Distribuire Servizi cognitivi di Azure nell'hub di Azure Stack](/azure-stack/user/azure-stack-solution-template-cognitive-services) per distribuire Servizi cognitivi nell'hub di Azure Stack. È prima necessario iscriversi per accedere all'anteprima.
 - Clonare o scaricare una versione del Custom Vision AI Dev Kit non configurata di Azure. Per informazioni dettagliate, vedere [Vision AI DevKit](https://azure.github.io/Vision-AI-DevKit-Pages/).
 - Creare un account Power BI.
 - Chiave di sottoscrizione per l'API Viso di Servizi cognitivi di Azure e URL dell'endpoint. È possibile ottenere sia la chiave sia l'URL nella versione di [valutazione di Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni riportate in [Creare un account di Servizi cognitivi](/azure/cognitive-services/cognitive-services-apis-create-account).
 - Installare le risorse di sviluppo seguenti:
-  - [Interfaccia della riga di comando di Azure 2.0](/azure-stack/user/azure-stack-version-profiles-azurecli2.md)
+  - [Interfaccia della riga di comando di Azure 2.0](/azure-stack/user/azure-stack-version-profiles-azurecli2)
   - [Docker CE](https://hub.docker.com/search/?type=edition&offering=community)
   - [Porter](https://porter.sh/). Porter consente di distribuire app cloud usando i manifesti di bundle CNAB disponibili.
   - [Visual Studio Code](https://code.visualstudio.com/)

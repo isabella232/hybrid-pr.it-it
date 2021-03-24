@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 5ae6c4323324fa104cd0e5c7b5198492be14b8eb
-ms.sourcegitcommit: 56980e3c118ca0a672974ee3835b18f6e81b6f43
-ms.translationtype: HT
+ms.openlocfilehash: ed2ad5bed8f4bd80d4a40ab7600842d5544ff97d
+ms.sourcegitcommit: 962334135b63ac99c715e7bc8fb9282648ba63c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88886816"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104895415"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Distribuire un'app con scalabilità tra cloud usando Azure e l'hub di Azure Stack
 
@@ -30,25 +30,25 @@ In questa soluzione si compilerà un ambiente di esempio per:
 > - Imparare a monitorare e tenere traccia delle distribuzioni.
 
 > [!Tip]  
-> ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
-> L'hub di Microsoft Azure Stack è un'estensione di Azure, che offre all'ambiente locale l'agilità e l'innovazione del cloud computing, abilitando l'unico cloud ibrido che consente di creare e distribuire ovunque app ibride.  
+> ![diagramma delle colonne ibride](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> L'hub di Microsoft Azure Stack è un'estensione di Azure che offre all'ambiente locale l'agilità e l'innovazione del cloud computing, abilitando l'unico cloud ibrido che consente di creare e distribuire ovunque app ibride.  
 > 
-> L'articolo [Considerazioni per la progettazione di app ibride](overview-app-design-considerations.md) esamina i concetti fondamentali relativi alla qualità del software (posizionamento, scalabilità, disponibilità, resilienza, gestibilità e sicurezza) per la progettazione, la distribuzione e la gestione di app ibride. Le considerazioni di progettazione consentono di ottimizzare la progettazione delle app ibride, riducendo al minimo i rischi negli ambienti di produzione.
+> L'articolo [Considerazioni per la progettazione di app ibride](overview-app-design-considerations.md) esamina i concetti fondamentali per la qualità del software (posizionamento, scalabilità, disponibilità, resilienza, gestibilità e sicurezza) per la progettazione, la distribuzione e la gestione di app ibride. Le considerazioni di progettazione consentono di ottimizzare la progettazione delle app ibride, riducendo al minimo i rischi negli ambienti di produzione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Sottoscrizione di Azure. Prima di iniziare, se necessario, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Un sistema integrato dell'hub di Azure Stack o una distribuzione di Azure Stack Development Kit (ASDK).
-  - Per informazioni sull'installazione dell'hub di Azure Stack, vedere le [istruzioni di installazione di ASDK](/azure-stack/asdk/asdk-install.md).
+  - Per informazioni sull'installazione dell'hub di Azure Stack, vedere le [istruzioni di installazione di ASDK](/azure-stack/asdk/asdk-install).
   - Per uno script di automazione post-distribuzione di ASDK, vedere [https://github.com/mattmcspirit/azurestack](https://github.com/mattmcspirit/azurestack)
   - Per completare questa installazione possono essere necessarie alcune ore.
-- Distribuire i servizi PaaS del [servizio app](/azure-stack/operator/azure-stack-app-service-deploy.md) nell'hub di Azure Stack.
-- [Creare piani o offerte](/azure-stack/operator/service-plan-offer-subscription-overview.md) nell'ambiente dell'hub di Azure Stack.
-- [Creare una sottoscrizione tenant](/azure-stack/operator/azure-stack-subscribe-plan-provision-vm.md) nell'ambiente dell'hub di Azure Stack.
+- Distribuire i servizi PaaS del [servizio app](/azure-stack/operator/azure-stack-app-service-deploy) nell'hub di Azure Stack.
+- [Creare piani o offerte](/azure-stack/operator/service-plan-offer-subscription-overview) nell'ambiente dell'hub di Azure Stack.
+- [Creare una sottoscrizione tenant](/azure-stack/operator/azure-stack-subscribe-plan-provision-vm) nell'ambiente dell'hub di Azure Stack.
 - Creare un'app Web all'interno della sottoscrizione tenant. Prendere nota dell'URL della nuova app Web per usarlo in seguito.
 - Distribuire la macchina virtuale (VM) di Azure Pipelines nella sottoscrizione tenant.
 - È necessaria una macchina virtuale Windows Server 2016 con .NET 3.5. Questa macchina virtuale verrà compilata nella sottoscrizione tenant per l'hub di Azure Stack come agente di compilazione privato.
-- [Windows Server 2016 con immagine VM di SQL 2017](/azure-stack/operator/azure-stack-add-vm-image.md) è disponibile nel Marketplace dell'hub di Azure Stack. Se questa immagine non è disponibile, usare un operatore dell'hub di Azure Stack per assicurarsi che venga aggiunta all'ambiente.
+- [Windows Server 2016 con immagine VM di SQL 2017](/azure-stack/operator/azure-stack-add-vm-image) è disponibile nel Marketplace dell'hub di Azure Stack. Se questa immagine non è disponibile, usare un operatore dell'hub di Azure Stack per assicurarsi che venga aggiunta all'ambiente.
 
 ## <a name="issues-and-considerations"></a>Considerazioni e problemi
 
@@ -79,7 +79,7 @@ Aggiornare il file della zona DNS per il dominio. Azure AD verifica quindi la pr
 Configurare l'integrazione continua e la distribuzione continua (CI/CD) ibride per distribuire le app Web in Azure e nell'hub di Azure Stack e per eseguire il push automatico delle modifiche in entrambi i cloud.
 
 > [!Note]  
-> Sono necessari l'hub di Azure Stack con immagini diffuse appropriate per l'esecuzione (Windows Server e SQL) e la distribuzione del servizio app. Per altre informazioni, vedere i [prerequisiti per la distribuzione del servizio app nell'hub di Azure Stack](/azure-stack/operator/azure-stack-app-service-before-you-get-started.md) nella documentazione del servizio app.
+> Sono necessari l'hub di Azure Stack con immagini diffuse appropriate per l'esecuzione (Windows Server e SQL) e la distribuzione del servizio app. Per altre informazioni, vedere i [prerequisiti per la distribuzione del servizio app nell'hub di Azure Stack](/azure-stack/operator/azure-stack-app-service-before-you-get-started) nella documentazione del servizio app.
 
 ### <a name="add-code-to-azure-repos"></a>Aggiungere codice ad Azure Repos
 
@@ -157,7 +157,7 @@ Azure Pipelines e Azure DevOps Services offrono una pipeline altamente configura
   
       ![Selezionare il pacchetto o la cartella per l'ambiente del servizio app di Azure](media/solution-deployment-guide-cross-cloud-scaling/image12.png)
 
-      ![Selezionare il pacchetto o la cartella per l'ambiente del servizio app di Azure](media/solution-deployment-guide-cross-cloud-scaling/image13.png)
+      ![Finestra di dialogo di selezione cartelle 1](media/solution-deployment-guide-cross-cloud-scaling/image13.png)
 
 9. Salvare tutte le modifiche e tornare alla **pipeline di versione**.
 
@@ -194,7 +194,7 @@ Azure Pipelines e Azure DevOps Services offrono una pipeline altamente configura
 
     ![Selezionare la cartella per la distribuzione del servizio app di Azure](media/solution-deployment-guide-cross-cloud-scaling/image22.png)
 
-    ![Selezionare la cartella per la distribuzione del servizio app di Azure](media/solution-deployment-guide-cross-cloud-scaling/image23.png)
+    ![Finestra di dialogo di selezione cartelle 2](media/solution-deployment-guide-cross-cloud-scaling/image23.png)
 
 18. Nella scheda Variable (Variabile) aggiungere una variabile con nome `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`, impostare il valore come **true** e Azure Stack come ambito.
 
@@ -211,7 +211,7 @@ Azure Pipelines e Azure DevOps Services offrono una pipeline altamente configura
 21. Salvare tutte le modifiche.
 
 > [!Note]  
-> Alcune impostazioni per le attività potrebbero essere state definite automaticamente come [variabili di ambiente](/azure/devops/pipelines/release/variables?tabs=batch&view=vsts#custom-variables) durante la creazione di una definizione di versione da un modello. Queste impostazioni non possono essere modificate nelle impostazioni dell'attività. Per modificarle è invece necessario selezionare l'elemento dell'ambiente padre.
+> Alcune impostazioni per le attività potrebbero essere state definite automaticamente come [variabili di ambiente](/azure/devops/pipelines/release/variables?tabs=batch#custom-variables) durante la creazione di una definizione di versione da un modello. Queste impostazioni non possono essere modificate nelle impostazioni dell'attività. Per modificarle è invece necessario selezionare l'elemento dell'ambiente padre.
 
 ## <a name="publish-to-azure-stack-hub-via-visual-studio"></a>Pubblicare nell'hub di Azure Stack con Visual Studio
 
@@ -242,7 +242,7 @@ Poiché ora sono disponibili le informazioni sugli endpoint, la connessione da A
 ## <a name="develop-the-app-build"></a>Sviluppare la build dell'app
 
 > [!Note]  
-> Sono necessari l'hub di Azure Stack con immagini diffuse appropriate per l'esecuzione (Windows Server e SQL) e la distribuzione del servizio app. Per altre informazioni, vedere [Prerequisiti per la distribuzione del servizio app nell'hub di Azure Stack](/azure-stack/operator/azure-stack-app-service-before-you-get-started.md).
+> Sono necessari l'hub di Azure Stack con immagini diffuse appropriate per l'esecuzione (Windows Server e SQL) e la distribuzione del servizio app. Per altre informazioni, vedere [Prerequisiti per la distribuzione del servizio app nell'hub di Azure Stack](/azure-stack/operator/azure-stack-app-service-before-you-get-started).
 
 Usare i [modelli di Azure Resource Manager](https://azure.microsoft.com/resources/templates/) come codice dell'app Web da Azure Repos per la distribuzione in entrambi i cloud.
 
@@ -329,7 +329,7 @@ La creazione di una definizione della versione è il passaggio finale del proces
 23. Salvare tutte le modifiche.
 
 > [!Note]  
-> Alcune impostazioni per le attività di rilascio vengono definite automaticamente come [variabili di ambiente](/azure/devops/pipelines/release/variables?tabs=batch&view=vsts#custom-variables) durante la creazione di una definizione di versione da un modello. Queste impostazioni non possono essere modificate nelle impostazioni delle attività, ma si possono modificare negli elementi dell'ambiente padre.
+> Alcune impostazioni per le attività di rilascio vengono definite automaticamente come [variabili di ambiente](/azure/devops/pipelines/release/variables?tabs=batch#custom-variables) durante la creazione di una definizione di versione da un modello. Queste impostazioni non possono essere modificate nelle impostazioni delle attività, ma si possono modificare negli elementi dell'ambiente padre.
 
 ## <a name="create-a-release"></a>Creare una versione
 

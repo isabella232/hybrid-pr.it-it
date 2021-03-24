@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 16c5d7820e8c865a9f88cb00da5cc7c854379414
-ms.sourcegitcommit: d2def847937178f68177507be151df2aa8e25d53
-ms.translationtype: HT
+ms.openlocfilehash: 4480f51b03082f2a0cbb7f2f213e05b7bf488646
+ms.sourcegitcommit: 962334135b63ac99c715e7bc8fb9282648ba63c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86477287"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104895379"
 ---
 # <a name="configure-hybrid-cloud-connectivity-using-azure-and-azure-stack-hub"></a>Configurare la connettività di cloud ibrido usando Azure e l'hub di Azure Stack
 
@@ -25,8 +25,8 @@ In questa soluzione si compilerà un ambiente di esempio per:
 > - Gestire un sistema legacy usando funzioni di distribuzione di app e risorse a livello di cloud in Azure globale.
 
 > [!Tip]  
-> ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
-> L'hub di Microsoft Azure Stack è un'estensione di Azure che offre all'ambiente locale l'agilità e l'innovazione del cloud computing, abilitando l'unico cloud ibrido che consente di creare e distribuire ovunque app ibride.  
+> ![Diagramma dei concetti sulle app ibride](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> L'hub di Microsoft Azure Stack è un'estensione di Azure. L'hub di Azure Stack offre all'ambiente locale l'agilità e l'innovazione del cloud computing, abilitando l'unico cloud ibrido che consente di creare e distribuire ovunque app ibride.  
 > 
 > L'articolo [Considerazioni per la progettazione di app ibride](overview-app-design-considerations.md) esamina i concetti fondamentali di qualità del software (posizionamento, scalabilità, disponibilità, resilienza, gestibilità e sicurezza) per la progettazione, la distribuzione e la gestione di app ibride. Le considerazioni di progettazione consentono di ottimizzare la progettazione delle app ibride, riducendo al minimo i rischi negli ambienti di produzione.
 
@@ -37,7 +37,7 @@ Per creare una distribuzione di connettività ibrida sono necessari alcuni compo
 ### <a name="azure"></a>Azure
 
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-- Creare un'[app Web](/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?tabs=vsts&view=vsts) in Azure. Prendere nota dell'URL dell'app Web perché sarà necessaria nella soluzione.
+- Creare un'[app Web](/aspnet/core/tutorials/publish-to-azure-webapp-using-vs) in Azure. Prendere nota dell'URL dell'app Web perché sarà necessaria nella soluzione.
 
 ### <a name="azure-stack-hub"></a>Hub di Azure Stack
 
@@ -47,9 +47,9 @@ Un partner OEM/hardware di Azure può distribuire un hub di Azure Stack di produ
    >[!Note]
    >La distribuzione dell'ASDK può richiedere fino a 7 ore. È quindi necessario pianificare di conseguenza.
 
-- Distribuire i servizi PaaS del [servizio app](/azure-stack/operator/azure-stack-app-service-deploy.md) nell'hub di Azure Stack.
-- [Creare piani e offerte](/azure-stack/operator/service-plan-offer-subscription-overview.md) nell'ambiente dell'hub di Azure Stack.
-- [Creare una sottoscrizione tenant](/azure-stack/operator/azure-stack-subscribe-plan-provision-vm.md) all'interno dell'ambiente dell'hub di Azure Stack.
+- Distribuire i servizi PaaS del [servizio app](/azure-stack/operator/azure-stack-app-service-deploy) nell'hub di Azure Stack.
+- [Creare piani e offerte](/azure-stack/operator/service-plan-offer-subscription-overview) nell'ambiente dell'hub di Azure Stack.
+- [Creare una sottoscrizione tenant](/azure-stack/operator/azure-stack-subscribe-plan-provision-vm) all'interno dell'ambiente dell'hub di Azure Stack.
 
 ### <a name="azure-stack-hub-components"></a>Componenti dell'hub di Azure Stack
 
@@ -58,7 +58,7 @@ Un operatore dell'hub di Azure Stack deve distribuire il servizio app, creare pi
 Questa soluzione di esempio presuppone che l'utente abbia una certa conoscenza di base di Azure e dell'hub di Azure Stack. Per altre informazioni prima di avviare la soluzione, vedere gli articoli seguenti:
 
 - [Introduzione ad Azure](https://azure.microsoft.com/overview/what-is-azure/)
-- [Concetti chiave dell'hub di Azure Stack](/azure-stack/operator/azure-stack-overview.md)
+- [Concetti chiave dell'hub di Azure Stack](/azure-stack/operator/azure-stack-overview)
 
 ### <a name="before-you-begin"></a>Prima di iniziare
 

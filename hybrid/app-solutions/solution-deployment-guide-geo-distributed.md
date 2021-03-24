@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 27d07070becfa902a715b451baae7c81c7e4b46f
-ms.sourcegitcommit: 56980e3c118ca0a672974ee3835b18f6e81b6f43
-ms.translationtype: HT
+ms.openlocfilehash: 9fa2c351d2c13d85fe1adb17a35e165de96ea2a2
+ms.sourcegitcommit: 962334135b63ac99c715e7bc8fb9282648ba63c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88886833"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104895432"
 ---
 # <a name="direct-traffic-with-a-geo-distributed-app-using-azure-and-azure-stack-hub"></a>Indirizzare il traffico con un'app con distribuzione geografica usando Azure e l'hub di Azure Stack
 
@@ -61,8 +61,8 @@ Prima di creare un footprint per le app distribuite, è utile sapere quanto segu
 - **Convenzione di denominazione per le app:** poiché verranno distribuite più istanze dell'app, è necessario definire un nome per ogni istanza dell'app distribuita. Con l'ambiente del servizio app per Power Apps, lo stesso nome di app può essere usato in più ambienti. Poiché ogni ambiente del servizio app ha un suffisso univoco, gli sviluppatori possono scegliere di riusare esattamente lo stesso nome dell'app in ogni ambiente. Ad esempio, uno sviluppatore può avere app denominate come segue: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net* e così via. Per l'app usata nel presente contesto, ogni istanza dell'app ha un nome univoco. I nomi delle istanze dell'app usati sono *webfrontend1*, *webfrontend2* e *webfrontend3*.
 
 > [!Tip]  
-> ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
-> L'hub di Azure Stack è un'estensione di Azure che offre all'ambiente locale l'agilità e l'innovazione del cloud computing, abilitando l'unico cloud ibrido che consente di creare e distribuire ovunque app ibride.  
+> ![Diagramma dei concetti sulle app ibride](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> L'hub di Microsoft Azure Stack è un'estensione di Azure. L'hub di Azure Stack offre all'ambiente locale l'agilità e l'innovazione del cloud computing, abilitando l'unico cloud ibrido che consente di creare e distribuire ovunque app ibride.  
 > 
 > L'articolo [Considerazioni per la progettazione di app ibride](overview-app-design-considerations.md) esamina i concetti fondamentali di qualità del software (posizionamento, scalabilità, disponibilità, resilienza, gestibilità e sicurezza) per la progettazione, la distribuzione e la gestione di app ibride. Le considerazioni di progettazione consentono di ottimizzare la progettazione delle app ibride, riducendo al minimo i rischi negli ambienti di produzione.
 
@@ -97,7 +97,7 @@ Aggiornare il file della zona DNS per il dominio. Azure AD può quindi verificar
 Configurare l'integrazione continua e il recapito continuo (CI/CD) ibridi per distribuire l'app Web in Azure e nell'hub di Azure Stack e per eseguire il push automatico delle modifiche in entrambi i cloud.
 
 > [!Note]  
-> Sono necessari l'hub di Azure Stack con immagini diffuse appropriate per l'esecuzione (Windows Server e SQL) e la distribuzione del servizio app. Per altre informazioni, vedere [Prerequisiti per la distribuzione del servizio app nell'hub di Azure Stack](/azure-stack/operator/azure-stack-app-service-before-you-get-started.md).
+> Sono necessari l'hub di Azure Stack con immagini diffuse appropriate per l'esecuzione (Windows Server e SQL) e la distribuzione del servizio app. Per altre informazioni, vedere [Prerequisiti per la distribuzione del servizio app nell'hub di Azure Stack](/azure-stack/operator/azure-stack-app-service-before-you-get-started).
 
 #### <a name="add-code-to-azure-repos"></a>Aggiungere codice ad Azure Repos
 
@@ -173,7 +173,7 @@ Azure DevOps Services offre una pipeline altamente configurabile e facilmente ge
   
       ![Selezionare il pacchetto o la cartella dell'ambiente Servizio app di Azure in Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image12.png)
 
-      ![Selezionare il pacchetto o la cartella dell'ambiente servizio app di Azure in Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image13.png)
+      ![Finestra di dialogo di selezione cartelle 1](media/solution-deployment-guide-geo-distributed/image13.png)
 
 9. Salvare tutte le modifiche e tornare alla **pipeline di versione**.
 
@@ -212,7 +212,7 @@ Azure DevOps Services offre una pipeline altamente configurabile e facilmente ge
 
     ![Selezionare la cartella per Distribuzione Servizio app di Azure in Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image22.png)
 
-    ![Selezionare la cartella per Distribuzione Servizio app di Azure in Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image23.png)
+    ![Finestra di dialogo di selezione cartelle 2](media/solution-deployment-guide-geo-distributed/image23.png)
 
 18. Nella scheda Variable (Variabile) aggiungere una variabile con nome `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`, impostare il valore come **true** e l'hub di Azure Stack come ambito.
 
@@ -229,7 +229,7 @@ Azure DevOps Services offre una pipeline altamente configurabile e facilmente ge
 21. Salvare tutte le modifiche.
 
 > [!Note]  
-> Alcune impostazioni per le attività potrebbero essere state definite automaticamente come [variabili di ambiente](/azure/devops/pipelines/release/variables?tabs=batch&view=vsts#custom-variables) durante la creazione di una definizione di versione da un modello. Queste impostazioni non possono essere modificate nelle impostazioni dell'attività. Per modificarle è invece necessario selezionare l'elemento dell'ambiente padre.
+> Alcune impostazioni per le attività potrebbero essere state definite automaticamente come [variabili di ambiente](/azure/devops/pipelines/release/variables?tabs=batch#custom-variables) durante la creazione di una definizione di versione da un modello. Queste impostazioni non possono essere modificate nelle impostazioni dell'attività. Per modificarle è invece necessario selezionare l'elemento dell'ambiente padre.
 
 ## <a name="part-2-update-web-app-options"></a>Parte 2: Aggiornare le opzioni dell'app Web
 
@@ -492,7 +492,7 @@ Dopo che il Servizio app ha terminato il caricamento del certificato, viene visu
 
 2. Nel pannello **Aggiungi associazione SSL** usare gli elenchi a discesa per selezionare il nome di dominio da proteggere e il certificato da usare.
 
-3. In **Tipo SSL** selezionare se usare l'SSL basato su [**indicazione nome server (SNI)** ](https://en.wikipedia.org/wiki/Server_Name_Indication) o basato su IP.
+3. In **Tipo SSL** selezionare se usare l'SSL basato su [**indicazione nome server (SNI)**](https://en.wikipedia.org/wiki/Server_Name_Indication) o basato su IP.
 
     - **SSL basato su SNI**: è possibile aggiungere più associazioni SSL basate su SNI. Questa opzione consente di usare più certificati SSL per proteggere più domini nello stesso indirizzo IP. La maggior parte dei browser moderni (tra cui Internet Explorer, Chrome, Firefox e Opera) supporta SNI. Per altre informazioni sul supporto dei browser, vedere [Indicazione nome server](https://wikipedia.org/wiki/Server_Name_Indication).
 
