@@ -9,7 +9,7 @@ metadata:
   ms.topic: hub-page
   author: BryanLa
   ms.author: bryanla
-  ms.date: 03/09/2021
+  ms.date: 06/11/2021
   ms.custom: e2e-hybrid
 highlightedContent:
   items:
@@ -319,6 +319,20 @@ additionalContent:
               text: Scalabilità dinamica dall'hub di Azure Stack ad Azure
             - url: 'https://myinspire.microsoft.com/sessions/4a50e354-b3a8-4d54-9d2a-9dc723ac1030'
               text: Novità di Azure Stack HCI
+        - title: Sviluppo e integrazione
+          links:
+            - url: 'https://www.youtube.com/watch?v=to8D7Xl9SU8'
+              text: Introduzione alle app ibride di Azure Stack
+            - url: 'https://mybuild.microsoft.com/sessions/2debfc2e-f0b3-4adf-bcec-d126930f806f'
+              text: Build cloud-native applications that run anywhere
+            - url: 'https://mybuild.microsoft.com/sessions/9f56bc10-30bd-42e2-afc8-b61b22260c49'
+              text: Creare applicazioni ibride e multicloud coerenti con Azure Arc (ask the experts)
+            - url: 'https://www.youtube.com/watch?v=2lw8zOpJTn0'
+              text: Scalabilità dinamica dall'hub di Azure Stack ad Azure
+            - url: 'https://mybuild.microsoft.com/sessions/92bd3e12-fbf4-4278-b68f-fe776b02adfa'
+              text: App per la logica - Sviluppo del futuro dell'integrazione
+            - url: 'https://mybuild.microsoft.com/sessions/76ebac39-517d-44da-a58e-df4193b5efa9'
+              text: Il futuro dello sviluppo di applicazioni moderne con .NET
         - title: Microsoft Edge
           links:
             - url: 'https://github.com/Azure-Samples/AI-Video-Intelligence-Solution-Accelerator'
@@ -366,13 +380,13 @@ additionalContent:
             - url: 'https://azurearcjumpstart.io/'
               text: Guide di avvio rapido per Azure Arc
             - url: /learn/browse/?terms=%22%20Arc%20%22
-              text: Azure Arc learn
+              text: Azure Arc Learn
             - url: /learn/modules/describe-high-availability-disaster-recovery-strategies/
               text: Descrivere le strategie per la disponibilità elevata e il ripristino di emergenza
             - url: /learn/browse/?terms="disaster%20recovery"
-              text: Moduli learn per il ripristino di emergenza
+              text: Moduli Learn sul ripristino di emergenza
             - url: /learn/browse/?terms="high%20availability"
-              text: Moduli di Learn a disponibilità elevata
+              text: Moduli learn a disponibilità elevata
             - url: /learn/modules/intro-to-azure-arc/
               text: Introduzione ad Azure Arc
             - url: /learn/modules/monitor-windows-server-iaas-virtual-machines-hybrid-instances/
