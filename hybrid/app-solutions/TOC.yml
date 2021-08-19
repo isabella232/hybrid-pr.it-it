@@ -33,29 +33,29 @@
 - name: Guide alla distribuzione di soluzioni
   items:
     - name: Scalabilità tra cloud
-      href: solution-deployment-guide-cross-cloud-scaling.md
+      href: /azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling
     - name: Scalabilità tra cloud (dati locali)
-      href: solution-deployment-guide-cross-cloud-scaling-onprem-data.md
+      href: /azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data
     - name: CI/CD ibrido per DevOps
       href: 'https://aka.ms/hybriddevopsdeploy'
     - name: Rilevamento del footfall (retail)
-      href: solution-deployment-guide-retail-footfall-detection.md
+      href: /azure/architecture/hybrid/deployments/solution-deployment-guide-retail-footfall-detection
     - name: App con distribuzione geografica
-      href: solution-deployment-guide-geo-distributed.md
+      href: /azure/architecture/hybrid/deployments/solution-deployment-guide-geo-distributed
     - name: Cluster Kubernetes a disponibilità elevata
-      href: solution-deployment-guide-highly-available-kubernetes.md
+      href: /azure/architecture/hybrid/deployments/solution-deployment-guide-highly-available-kubernetes
     - name: Connettività ibrida
-      href: solution-deployment-guide-connectivity.md
+      href: /azure/architecture/hybrid/deployments/solution-deployment-guide-connectivity
     - name: Identità ibrida
-      href: solution-deployment-guide-identity.md
+      href: /azure/architecture/hybrid/deployments/solution-deployment-guide-identity
     - name: Inoltro ibrido
       href: 'https://aka.ms/hybridrelaydeployment'
     - name: Dati su più livelli
       href: 'https://aka.ms/tiereddatadeploy'
     - name: MongoDB a disponibilità elevata
-      href: solution-deployment-guide-mongodb-ha.md
+      href: /azure/architecture/hybrid/deployments/solution-deployment-guide-mongodb-ha
     - name: SQL Server 2016 a disponibilità elevata
-      href: solution-deployment-guide-sql-ha.md
+      href: /azure/architecture/hybrid/deployments/solution-deployment-guide-sql-ha
     - name: Esaurimento delle scorte al perimetro
       href: 'https://aka.ms/edgeinferencingdeploy'
     - name: Training di modelli di ML al perimetro

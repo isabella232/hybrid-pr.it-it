@@ -13,16 +13,16 @@ metadata:
   ms.custom: e2e-hybrid
 highlightedContent:
   items:
-    - title: 'Inspire 2021: sessioni ibride'
+    - title: 'Ispirazione 2021: sessioni ibride'
       itemType: video
       url: 'https://myinspire.microsoft.com/sessions?q=hybrid&f=%255B%257B%2522name%2522%253A%2522Azure%255CtAzure%2522%252C%2522facetName%2522%253A%2522solutionArea%2522%257D%255D&s=%257B%2522name%2522%253A%2522translate.refine.label.sort.relevance%2522%252C%2522type%2522%253A0%257D&t=%257B%2522from%2522%253A%25222021-07-14T00%253A00%253A00-07%253A00%2522%252C%2522to%2522%253A%25222021-07-16T23%253A59%253A00-07%253A00%2522%257D'
-    - title: 'Inspire 2021: Sessioni di Arc'
+    - title: 'Ispirazione 2021: sessioni di Arc'
       itemType: video
       url: 'https://myinspire.microsoft.com/sessions?q=%2522%2520arc%2520%2522&f=%255B%257B%2522name%2522%253A%2522Azure%255CtAzure%2522%252C%2522facetName%2522%253A%2522solutionArea%2522%257D%255D&s=%257B%2522name%2522%253A%2522translate.refine.label.sort.relevance%2522%252C%2522type%2522%253A0%257D&t=%257B%2522from%2522%253A%25222021-07-14T00%253A00%253A00-07%253A00%2522%252C%2522to%2522%253A%25222021-07-16T23%253A59%253A00-07%253A00%2522%257D'
     - title: 'Build 2021: sessioni ibride'
       itemType: video
       url: 'https://mybuild.microsoft.com/sessions?t={"from":"2021-05-25T00:00:00-07:00","to":"2021-05-27T23:59:00-07:00"}&q=hybrid'
-    - title: 'Build 2021: Sessioni arc'
+    - title: 'Build 2021: sessioni di Arc'
       itemType: video
       url: 'https://mybuild.microsoft.com/sessions?t={"from":"2021-05-25T00:00:00-07:00","to":"2021-05-27T23:59:00-07:00"}&q=" Arc "'
     - title: 'Ignite 2021: sessioni ibride'
@@ -31,7 +31,7 @@ highlightedContent:
     - title: 'Ignite 2021: Azure Arc sessioni'
       itemType: video
       url: 'https://myignite.microsoft.com/sessions?t={"from":"2021-03-02T00:00:00-07:00","to":"2021-03-04T23:59:00-07:00"}&q=" Arc "'
-    - title: 'Ignite 2021: sessioni di intelligenza artificiale edge'
+    - title: 'Ignite 2021: sessioni di intelligenza artificiale Edge'
       itemType: video
       url: 'https://myignite.microsoft.com/sessions?t={"from":"2020-09-22T00:00:00-07:00","to":"2020-09-25T23:59:00-07:00"}&q=" AI edge"'
     - title: Creazione di applicazioni ibride moderne con Azure Arc e Azure Stack
@@ -295,15 +295,15 @@ additionalContent:
               text: Cluster Kubernetes a disponibilità elevata
         - title: Distribuire esempi di soluzioni per app
           links:
-            - url: ./app-solutions/solution-deployment-guide-cross-cloud-scaling.md
+            - url: /azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling
               text: Scalabilità tra cloud
             - url: 'https://aka.ms/hybriddevopsdeploy'
               text: CI/CD ibrido per DevOps
-            - url: ./app-solutions/solution-deployment-guide-retail-footfall-detection.md
+            - url: /azure/architecture/hybrid/deployments/solution-deployment-guide-retail-footfall-detection
               text: Rilevamento del footfall (retail)
-            - url: ./app-solutions/solution-deployment-guide-geo-distributed.md
+            - url: /azure/architecture/hybrid/deployments/solution-deployment-guide-geo-distributed
               text: App con distribuzione geografica
-            - url: ./app-solutions/solution-deployment-guide-highly-available-kubernetes.md
+            - url: /azure/architecture/hybrid/deployments/solution-deployment-guide-highly-available-kubernetes
               text: Cluster Kubernetes a disponibilità elevata
     - title: Risorse di valutazione e formazione
       items:
@@ -328,11 +328,11 @@ additionalContent:
             - url: 'https://mybuild.microsoft.com/sessions/2debfc2e-f0b3-4adf-bcec-d126930f806f'
               text: Build cloud-native applications that run anywhere
             - url: 'https://mybuild.microsoft.com/sessions/9f56bc10-30bd-42e2-afc8-b61b22260c49'
-              text: Creare applicazioni ibride e multicloud coerenti con Azure Arc (Chiedere agli esperti)
+              text: Creare applicazioni ibride e multicloud coerenti con Azure Arc (ask the experts)
             - url: 'https://www.youtube.com/watch?v=2lw8zOpJTn0'
               text: Scalabilità dinamica dall'hub di Azure Stack ad Azure
             - url: 'https://mybuild.microsoft.com/sessions/92bd3e12-fbf4-4278-b68f-fe776b02adfa'
-              text: App per la logica- Alimentazione del futuro dell'integrazione
+              text: App per la logica - Sviluppo del futuro dell'integrazione
             - url: 'https://mybuild.microsoft.com/sessions/76ebac39-517d-44da-a58e-df4193b5efa9'
               text: Il futuro dello sviluppo delle applicazioni moderne con .NET
         - title: Microsoft Edge
@@ -360,7 +360,7 @@ additionalContent:
             - url: /learn/modules/intro-to-azure-hybrid-services/
               text: Introduzione ai servizi cloud ibridi di Azure
             - url: 'https://techcommunity.microsoft.com/t5/itops-talk-blog/bg-p/ITOpsTalkBlog/label-name/ITOps%20Talks?WT.mc_modinfra-12531-socuff'
-              text: IT Ops Talks - All Things Hybrid (con Mark Russonovic)
+              text: IT Ops Talks - All Things Hybrid (con MarkRsinokov)
             - url: 'https://events.microsoft.com/'
               text: Eventi Microsoft Catalogo
             - url: /learn
@@ -384,13 +384,13 @@ additionalContent:
             - url: 'https://azurearcjumpstart.io/'
               text: Guide di avvio rapido per Azure Arc
             - url: /learn/browse/?terms=%22%20Arc%20%22
-              text: Azure Arc learn
+              text: Azure Arc Learn
             - url: /learn/modules/describe-high-availability-disaster-recovery-strategies/
               text: Descrivere le strategie per la disponibilità elevata e il ripristino di emergenza
             - url: /learn/browse/?terms="disaster%20recovery"
-              text: Moduli learn per il ripristino di emergenza
+              text: Moduli Learn sul ripristino di emergenza
             - url: /learn/browse/?terms="high%20availability"
-              text: Moduli di Learn a disponibilità elevata
+              text: Moduli learn a disponibilità elevata
             - url: /learn/modules/intro-to-azure-arc/
               text: Introduzione ad Azure Arc
             - url: /learn/modules/monitor-windows-server-iaas-virtual-machines-hybrid-instances/

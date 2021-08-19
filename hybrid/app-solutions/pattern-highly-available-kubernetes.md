@@ -7,12 +7,12 @@ ms.date: 12/03/2020
 ms.author: bryanla
 ms.reviewer: bryanla
 ms.lastreviewed: 12/03/2020
-ms.openlocfilehash: 454cc0a0531882b7a8ec050a461420ce13eebcfe
-ms.sourcegitcommit: df7e3e6423c3d4e8a42dae3d1acfba1d55057258
-ms.translationtype: HT
+ms.openlocfilehash: f8a733bcdab871695e552ec687d42e3ff4230490
+ms.sourcegitcommit: df06f598da09074d387f5f765f7c4237af98fb59
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96912002"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122281313"
 ---
 # <a name="high-availability-kubernetes-cluster-pattern"></a>Modello di cluster Kubernetes a disponibilità elevata
 
@@ -394,4 +394,4 @@ Per altre informazioni sui concetti presentati in questo articolo, vedere:
 - [Scalabilità tra cloud](pattern-cross-cloud-scale.md) e [Modelli di app con distribuzione geografica](pattern-geo-distributed.md) nell'hub di Azure Stack.
 - [Architettura di microservizi nel servizio Azure Kubernetes](/azure/architecture/reference-architectures/microservices/aks).
 
-Quando si è pronti a testare l'esempio di soluzione, continuare con la [guida alla distribuzione del cluster a disponibilità elevata](solution-deployment-guide-highly-available-kubernetes.md). Questa guida contiene istruzioni dettagliate per la distribuzione e il test dei componenti.
+Quando si è pronti a testare l'esempio di soluzione, continuare con la [guida alla distribuzione del cluster a disponibilità elevata](/azure/architecture/hybrid/deployments/solution-deployment-guide-highly-available-kubernetes). Questa guida contiene istruzioni dettagliate per la distribuzione e il test dei componenti.
